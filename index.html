@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>XENJOY 绝影 H4 · PIS 提报</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&family=Noto+Sans+SC:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #F6F1EA;
+  --bg-2:    #EDE7DE;
+  --bg-3:    #E5DDD3;
+  --ink:     #1C1814;
+  --ink-2:   #352C24;
+  --muted:   #8A7E72;
+  --gold:    #8B6A3A;
+  --gold-d:  #6B5230;
+  --gold-l:  #C4A882;
+  --rule:    rgba(139,106,58,0.15);
+  --rule-2:  rgba(139,106,58,0.08);
+  --dk:      #1C1814;
+  --dk-2:    #252018;
+  --dk-3:    #2E2820;
+  --dk-text: #F0EAE0;
+  --dk-gold: #C4A882;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+html {  }
+body {
+  background: var(--dk);
+  font-family: 'DM Sans', 'Noto Sans SC', sans-serif;
+  font-weight: 300;
+  width: 1440px;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* ── SLIDE SHELL ── */
+.s {
+  width: 1440px;
+  height: 810px;
+  min-height: 810px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+/* ── TOP BAR ── */
+.top {
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 44px;
+  border-bottom: 1px solid rgba(196,168,130,0.1);
+}
+.top-light { background: var(--bg); border-bottom: 1px solid var(--rule); }
+.top-dark  { background: var(--dk-2); }
+.tag { font-size: 8px; letter-spacing: 0.38em; text-transform: uppercase; }
+.tag-l { color: var(--gold-d); }
+.tag-d { color: rgba(196,168,130,0.38); }
+.pg  { font-size: 8px; letter-spacing: 0.14em; }
+.pg-l { color: var(--muted); }
+.pg-d { color: rgba(196,168,130,0.28); }
+
+/* ── BODY ── */
+.body { flex: 1; display: flex; }
+
+/* ── BOTTOM BAR ── */
+.bot {
+  height: 26px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 44px;
+  border-top: 1px solid rgba(196,168,130,0.08);
+}
+.bot-light { background: var(--bg); border-top: 1px solid var(--rule); }
+.bot-dark  { background: var(--dk); }
+.bot-l-text { font-size: 7.5px; letter-spacing: 0.14em; text-transform: uppercase; }
+.bot-l-tl { color: var(--muted); }
+.bot-l-td { color: rgba(196,168,130,0.25); }
+.sig { font-family: 'Noto Sans SC', sans-serif; font-size: 14px; font-weight: 300; font-style: italic; }
+.sig-l { color: var(--gold-d); }
+.sig-d { color: rgba(196,168,130,0.3); }
+
+/* ── IMAGE FILLS ── */
+.img-fill {
+  position: relative;
+  overflow: hidden;
+  background: #100E0A;
+  min-height: 0;
+}
+.img-fill img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.65) contrast(1.08) saturate(0.6);
+}
+.img-fill.bright img { filter: brightness(0.78) contrast(1.06) saturate(0.65); }
+.img-fill.dim    img { filter: brightness(0.45) contrast(1.12) saturate(0.55); }
+
+/* ── OVERLAY LAYERS ── */
+.ov-bottom {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(20,16,10,0.88) 0%, rgba(20,16,10,0.1) 52%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 32px 50px;
+}
+.ov-left {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(20,16,10,0.82) 0%, rgba(20,16,10,0.18) 55%);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 0 50px;
+}
+.ov-full {
+  position: absolute; inset: 0;
+  background: rgba(20,16,10,0.62);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  padding: 32px 50px;
+}
+.ov-tl {
+  position: absolute; top: 20px; left: 44px;
+  font-size: 7.5px; letter-spacing: 0.4em; text-transform: uppercase;
+  color: rgba(196,168,130,0.5);
+}
+
+/* ── TYPOGRAPHY ── */
+.h0 {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size:54px;
+  font-weight: 300; line-height: 1.0; letter-spacing: -0.02em;
+  color: var(--dk-text);
+}
+.h0 em { font-style: italic; color: var(--dk-gold); }
+.h1 {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size:37px;
+  font-weight: 300; line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--dk-text);
+}
+.h1 em { font-style: italic; color: var(--dk-gold); }
+.h1-dark {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size:26px;
+  font-weight: 200; line-height: 1.15; color: var(--ink);
+}
+.h1-dark em { font-style: normal; color: var(--gold); }
+.h2 {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size:18px;
+  font-weight: 400; line-height: 1.25; color: rgba(240,234,224,0.85);
+}
+.h2-light { color: var(--ink-2); }
+.eyebrow {
+  font-size: 8px; letter-spacing: 0.42em; text-transform: uppercase;
+  color: rgba(196,168,130,0.5); margin-bottom: 9px;
+  display: flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ''; width: 18px; height: 1px; background: var(--dk-gold); opacity: 0.35; }
+.eyebrow-l { color: var(--gold-d); }
+.eyebrow-l::before { background: var(--gold-l); }
+.body-txt {
+  font-size:12px;
+  color: rgba(196,168,130,0.55); line-height: 1.72;
+}
+.body-txt strong { color: rgba(240,234,224,0.78); font-weight: 400; }
+.body-txt-l { color: var(--muted); }
+.body-txt-l strong { color: var(--ink-2); font-weight: 400; }
+.kicker {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size:14px;
+  font-weight: 300; font-style: italic;
+  color: var(--dk-gold); line-height: 1.55;
+  border-left: 2px solid rgba(196,168,130,0.3);
+  padding-left: 16px;
+}
+.kicker-l {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size:14px;
+  font-weight: 300; font-style: italic;
+  color: var(--gold); line-height: 1.55;
+  border-left: 2px solid var(--gold-d);
+  padding-left: 16px;
+}
+.spec-stmt {
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size:16px;
+  font-weight: 300; font-style: italic;
+  color: var(--gold-d); line-height: 1.5;
+  border-left: 2.5px solid var(--gold-l);
+  padding-left: 16px; max-width: 58ch;
+}
+
+/* ── LAYOUTS ── */
+.col2 { display: grid; grid-template-columns: 1fr 1fr; height: 100%; }
+.col3 { display: grid; grid-template-columns: 1fr 1fr 1fr; height: 100%; }
+.col4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; height: 100%; }
+.split-4-6 { display: grid; grid-template-columns: 4fr 6fr; height: 100%; }
+.split-6-4 { display: grid; grid-template-columns: 6fr 4fr; height: 100%; }
+.split-5-5 { display: grid; grid-template-columns: 1fr 1fr; height: 100%; }
+.split-3-7 { display: grid; grid-template-columns: 3fr 7fr; height: 100%; }
+.pad { padding: 32px 50px; }
+.pad-sm { padding: 20px 40px; }
+.vd { border-right: 1px solid var(--rule); }
+.vd-d { border-right: 1px solid rgba(196,168,130,0.1); }
+.col-center { display: flex; flex-direction: column; justify-content: center; }
+.col-end { display: flex; flex-direction: column; justify-content: flex-end; }
+
+/* ── NARR BAR ── */
+.narr { display: flex; background: var(--dk-2); border-bottom: 1px solid rgba(196,168,130,0.08); flex-shrink: 0; }
+.nstep { flex: 1; padding: 7px 0 6px; text-align: center; border-right: 1px solid rgba(196,168,130,0.08); }
+.nstep:last-child { border-right: none; }
+.nstep-en { font-size: 7px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(196,168,130,0.28); display: block; }
+.nstep-cn { font-family: 'Noto Sans SC', sans-serif; font-size: 9px; color: rgba(240,234,224,0.28); font-weight: 300; }
+.nstep-ch { font-size: 7px; color: rgba(196,168,130,0.2); display: block; }
+
+/* ── PILL TAGS ── */
+.pill {
+  display: inline-block; font-size: 8px; letter-spacing: 0.14em;
+  padding: 2px 8px; text-transform: uppercase;
+}
+.pill-same { color: rgba(70,130,90,0.9); background: rgba(70,130,90,0.08); border: 1px solid rgba(70,130,90,0.22); }
+.pill-diff { color: rgba(160,90,40,0.9); background: rgba(160,90,40,0.06); border: 1px solid rgba(160,90,40,0.2); }
+.pill-weak { color: rgba(150,110,30,0.85); background: rgba(150,110,30,0.06); border: 1px solid rgba(150,110,30,0.18); }
+.pill-h4  { color: var(--gold-d); background: rgba(139,106,58,0.08); border: 1px solid rgba(139,106,58,0.22); }
+
+/* ── BRAND COLOR STRIPS ── */
+.strip-wr { background: rgba(74,122,92,0.7); }
+.strip-pt { background: rgba(122,88,40,0.7); }
+.strip-bo { background: rgba(59,90,154,0.6); }
+.strip-h4 { background: var(--gold); }
+
+/* ── STAT BLOCK ── */
+.stat-n {
+  font-size:45px;
+  font-weight: 200; color: var(--dk-gold); line-height: 1; letter-spacing: -0.02em;
+}
+.stat-l { font-size: 8px; letter-spacing: 0.2em; color: rgba(196,168,130,0.38); text-transform: uppercase; margin-top: 4px; }
+
+/* ── DIAG TABLE ── */
+.diag { width: 100%; border-collapse: collapse; }
+.diag th { font-size: 8px; letter-spacing: 0.22em; color: var(--gold-d); text-transform: uppercase; padding: 0 0 8px; border-bottom: 1px solid var(--rule); text-align: left; font-weight: 400; }
+.diag td { padding: 7px 21px 7px 0; border-bottom: 1px solid var(--rule-2); color: var(--muted); vertical-align: top; line-height: 1.5; font-size:10px; }
+.diag tr:last-child td { border-bottom: none; }
+.diag td:first-child { color: var(--ink-2); font-weight: 400; white-space: nowrap; width: 46px; font-size: 11px; }
+.diag td.pis { color: var(--gold-d); }
+
+/* ── WEIGHT BAR ── */
+.wbar { display: flex; gap: 1px; background: var(--rule); height: 52px; }
+.wb { background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 8px; position: relative; overflow: hidden; flex: 1; }
+.wb-f { position: absolute; bottom: 0; left: 0; right: 0; background: var(--gold-l); opacity: 0.14; }
+.wb-n { font-family: 'Noto Sans SC', sans-serif; font-size: 9.5px; color: var(--ink-2); font-weight: 400; position: relative; z-index: 1; margin-bottom: 2px; }
+.wb-p { font-size: 8.5px; letter-spacing: 0.08em; color: var(--muted); position: relative; z-index: 1; }
+.wb:first-child .wb-n { color: var(--gold-d); }
+.wb:first-child .wb-p { color: var(--gold); }
+
+/* ── SPEC LIST ── */
+.slist { list-style: none; }
+.slist li { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--rule-2); font-size:10px; color: var(--muted); line-height: 1.6; }
+.slist li:last-child { border-bottom: none; }
+.slist li::before { content: '—'; color: var(--gold-l); font-size: 8.5px; flex-shrink: 0; margin-top: 1px; }
+.slist li strong { color: var(--ink-2); font-weight: 400; }
+.slist li em { font-style: italic; color: var(--gold); }
+
+/* ── MINI LABEL ── */
+.mlabel { font-size: 7.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-d); margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+.mlabel::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+.mlabel-d { color: rgba(196,168,130,0.4); }
+.mlabel-d::after { background: rgba(196,168,130,0.12); }
+
+/* ── KEY MOMENT ── */
+.km {
+  position: relative;
+  background: var(--dk);
+  padding: 40px 56px;
+  display: flex; flex-direction: column; justify-content: center; gap: 20px;
+  overflow: hidden;
+}
+.km::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold-d) 0%, var(--dk-gold) 55%, transparent 100%); }
+.km-badge { font-size: 8px; letter-spacing: 0.35em; color: rgba(196,168,130,0.38); text-transform: uppercase; display: flex; align-items: center; gap: 10px; }
+.km-badge::before { content: ''; width: 16px; height: 1px; background: var(--dk-gold); opacity: 0.3; }
+
+/* ── CONCL BOX ── */
+.concl { background: var(--bg-2); border-left: 2.5px solid var(--gold-d); padding: 17px 31px; }
+.concl-lbl { font-size: 7.5px; letter-spacing: 0.32em; color: var(--gold-d); text-transform: uppercase; margin-bottom: 5px; }
+.concl-main { font-family: 'Noto Sans SC', sans-serif; font-size:13px; font-weight: 300; color: var(--ink); line-height: 1.65; margin-bottom: 5px; }
+.concl-sub { font-size:10px; color: var(--muted); line-height: 1.75; }
+.concl-sub strong { color: var(--ink-2); font-weight: 400; }
+
+/* ── BRAND COMPARE PAGE ── */
+.bc-col { display: flex; flex-direction: column; overflow: hidden; }
+.bc-head { padding: 12px 25px 9px; border-bottom: 1px solid var(--rule-2); flex-shrink: 0; }
+.bc-brand-name { font-family: 'Noto Sans SC', sans-serif; font-size:12px; font-weight: 400; color: var(--ink); margin-bottom: 2px; }
+.bc-brand-role { font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.bc-body { padding: 12px 25px; flex: 1; display: flex; flex-direction: column; gap: 5px; overflow: hidden; }
+.bc-verdict { font-size:12px; color: var(--muted); line-height: 1.6; flex: 1; }
+.bc-verdict strong { color: var(--ink-2); font-weight: 400; }
+.bc-h4-col { background: rgba(139,106,58,0.04); border-left: 2px solid var(--gold) !important; }
+.bc-h4-col .bc-brand-name { color: var(--gold-d); }
+.bc-h4-col .bc-verdict { color: var(--gold-d); }
+.bc-h4-col .bc-verdict strong { color: var(--gold-d); }
+
+/* ── RATIONALE CARD ── */
+.rt { background: var(--bg); display: flex; flex-direction: column; overflow: hidden; border-right: 1px solid var(--rule); }
+.rt:last-child { border-right: none; }
+.rt-head { padding: 14px 25px 9px; border-bottom: 1px solid var(--rule); flex-shrink: 0; }
+.rt-big-l { font-family: 'Noto Sans SC', sans-serif; font-size:33px; font-weight: 200; color: rgba(139,106,58,0.14); line-height: 1; margin-bottom: 2px; }
+.rt-name { font-family: 'Noto Sans SC', sans-serif; font-size:13px; font-weight: 500; color: var(--ink); }
+.rt-body { padding: 11px 25px 14px; flex: 1; display: flex; flex-direction: column; gap: 8px; overflow: hidden; }
+.rt-why { font-size: 7.5px; font-weight: 500; color: var(--gold-d); letter-spacing: 0.08em; text-transform: uppercase; }
+.rt-txt { font-size:10px; color: var(--muted); line-height: 1.7; }
+.rt-txt strong { color: var(--ink-2); font-weight: 400; }
+.rt-src { margin-top: auto; display: flex; flex-direction: column; gap: 2px; padding-top: 6px; border-top: 1px solid var(--rule-2); }
+.rt-src-row { display: flex; align-items: flex-start; gap: 7px; font-size:9px; color: var(--muted); line-height: 1.5; }
+.rt-dot { width: 13px; height: 13px; border-radius: 50%; border: 1px solid var(--rule); display: flex; align-items: center; justify-content: center; font-size: 7px; color: var(--gold-l); flex-shrink: 0; font-weight: 500; }
+
+/* ── COLOR SWATCH ── */
+.sw-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--rule); }
+.sw { background: var(--bg); display: flex; flex-direction: column; }
+.sw-img { height: 160px; overflow: hidden; position: relative; }
+.sw-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.82) contrast(1.06) saturate(0.65); }
+.sw-info { padding: 11px 20px 12px; }
+.sw-pct { font-family: 'Noto Sans SC', sans-serif; font-size:25px; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 3px; }
+.sw-name { font-family: 'Noto Sans SC', sans-serif; font-size:12px; font-weight: 400; color: var(--ink); }
+.sw-note { font-size:9px; color: var(--muted); line-height: 1.6; margin-top: 3px; }
+.sw-note strong { color: var(--ink-2); font-weight: 400; }
+
+/* ── PRINCIPLE CARDS ── */
+.pr-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--rule); flex: 1; overflow: hidden; }
+.pr { background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
+.pr-img { overflow: hidden; position: relative; flex: 1; }
+.pr-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.06) saturate(0.62); }
+.pr-body { padding: 9px 20px 12px; flex-shrink: 0; }
+.pr-n { font-size:24px; font-weight: 200; color: var(--gold-l); opacity: 0.55; line-height: 1; margin-bottom: 4px; font-family: 'Noto Sans SC', sans-serif; }
+.pr-title { font-family: 'Noto Sans SC', sans-serif; font-size:12px; font-weight: 400; color: var(--gold); margin-bottom: 3px; }
+.pr-note { font-size:9px; color: var(--muted); line-height: 1.6; }
+.pr-note strong { color: var(--ink-2); font-weight: 400; }
+
+/* ── MATERIAL CARDS ── */
+.mat-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--rule); flex: 1; overflow: hidden; }
+.mat { background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
+.mat-img { overflow: hidden; position: relative; flex: 1; }
+.mat-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75) contrast(1.1) saturate(0.62); }
+.mat-img-ov { position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,16,10,0.82) 0%, transparent 52%); display: flex; flex-direction: column; justify-content: flex-end; padding: 12px 20px; }
+.mat-seq { font-size: 7.5px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(196,168,130,0.6); }
+.mat-name-lg { font-family: 'Noto Sans SC', sans-serif; font-size:16px; font-weight: 300; color: rgba(240,234,224,0.9); }
+.mat-body { padding: 9px 20px 12px; flex-shrink: 0; }
+.mat-note { font-size:9px; color: var(--muted); line-height: 1.6; }
+.mat-note strong { color: var(--ink-2); font-weight: 400; }
+.mat-note em { font-style: italic; color: var(--gold); }
+
+/* ── CRAFT CARDS ── */
+.craft-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--rule); flex: 1; overflow: hidden; }
+.craft { background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
+.craft-img { overflow: hidden; position: relative; flex: 1; }
+.craft-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75) contrast(1.08) saturate(0.6); }
+.craft-lv { position: absolute; top: 10px; right: 10px; font-size: 7.5px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; background: rgba(107,82,48,0.88); color: rgba(240,234,224,0.92); }
+.craft-body { padding: 9px 20px 12px; flex-shrink: 0; }
+.craft-name { font-family: 'Noto Sans SC', sans-serif; font-size:12px; font-weight: 400; color: var(--ink); margin-bottom: 2px; }
+.craft-apply { font-size: 7.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-d); display: block; padding-bottom: 4px; border-bottom: 1px solid var(--rule-2); margin-bottom: 4px; }
+.craft-note { font-size:9px; color: var(--muted); line-height: 1.6; }
+.craft-note strong { color: var(--ink-2); font-weight: 400; }
+.craft-note em { color: #9B4A3A; font-style: italic; }
+
+/* ── POSITION CARDS ── */
+.pos-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); flex: 1; overflow: hidden; }
+.pos { background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
+.pos-img { overflow: hidden; position: relative; flex: 1; }
+.pos-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.8) contrast(1.06) saturate(0.62); }
+.pos-body { padding: 9px 20px 12px; flex-shrink: 0; }
+.pos-prod { font-family: 'Noto Sans SC', sans-serif; font-size:11px; font-weight: 400; color: var(--ink-2); margin-bottom: 4px; padding-bottom: 4px; border-bottom: 1px solid var(--rule-2); }
+.pos-note { font-size:9px; color: var(--muted); line-height: 1.6; }
+.pos-note strong { color: var(--gold-d); font-weight: 400; }
+
+/* ── DUAL STATE ── */
+.dual { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); flex: 1; overflow: hidden; }
+.dual-c { background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
+.dual-img { overflow: hidden; position: relative; flex: 1; }
+.dual-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72) contrast(1.1) saturate(0.6); }
+.dual-note { font-size:10px; color: var(--muted); line-height: 1.65; padding: 9px 20px 11px; flex-shrink: 0; }
+.dual-note strong { color: var(--ink-2); font-weight: 400; }
+
+/* ── HONESTY ROW ── */
+.hon { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); flex: 1; overflow: hidden; }
+.hon-img { overflow: hidden; position: relative; }
+.hon-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72) contrast(1.1) saturate(0.62); }
+.hon-txt { background: var(--bg); padding: 20px 31px; display: flex; flex-direction: column; justify-content: center; gap: 9px; overflow: hidden; }
+
+/* ── COMPARE BADGE ── */
+.cbadge { position: absolute; font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 9px; font-weight: 400; }
+.cbadge-bad  { background: rgba(155,74,58,0.88); color: #fff; bottom: 10px; left: 12px; }
+.cbadge-good { background: rgba(107,82,48,0.88); color: rgba(240,234,224,0.92); bottom: 10px; left: 12px; }
+.cbadge-lv   { background: rgba(107,82,48,0.88); color: rgba(240,234,224,0.92); top: 10px; right: 10px; }
+
+/* ── SCENE CARDS ── */
+.scene-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); flex: 1; overflow: hidden; }
+.scene-c { background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
+.scene-img { overflow: hidden; position: relative; flex: 1; }
+.scene-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72) contrast(1.08) saturate(0.62); }
+.scene-note { font-size:10px; color: var(--muted); line-height: 1.55; padding: 4px 20px 4px 20px; border-bottom: 1px solid var(--rule-2); }
+.scene-note:last-child { border-bottom: none; }
+.scene-note strong { color: var(--ink-2); font-weight: 400; }
+.scene-notes { display: flex; flex-direction: column; flex-shrink: 0; }
+
+/* ── TREND ROW ── */
+.trend { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); }
+.trend-c { position: relative; overflow: hidden; }
+.trend-c img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.72) contrast(1.1) saturate(0.6); }
+.trend-lbl { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 12px 10px; background: linear-gradient(to top, rgba(20,16,10,0.82), transparent); font-size: 8px; letter-spacing: 0.22em; color: rgba(196,168,130,0.75); text-transform: uppercase; }
+
+/* ── TOC ── */
+.toc { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--rule); flex: 1; overflow: hidden; }
+.toc-col { background: var(--bg); padding: 16px 31px; overflow: hidden; }
+.toc-head { display: flex; align-items: center; gap: 8px; font-size: 7.5px; letter-spacing: 0.2em; color: var(--gold-d); text-transform: uppercase; margin-bottom: 9px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); font-weight: 400; }
+.toc-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold-l); }
+.toc-row { display: flex; gap: 10px; padding: 4px 0; border-bottom: 1px solid var(--rule-2); font-size:10px; align-items: baseline; }
+.toc-row:last-child { border-bottom: none; }
+.toc-n { color: var(--gold-l); flex-shrink: 0; font-size: 8.5px; min-width: 24px; }
+.toc-t { color: var(--ink-2); line-height: 1.4; }
+.toc-t-new { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════
+  S01 · HERO
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">XENJOY 绝影 · H4 调性产品线 · PIS 提报 · 2026</span><span class="pg pg-d">01</span></div>
+  <div class="body">
+    <div class="img-fill dim" style="flex:1;">
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1600&h=900&q=90" alt="精奢健身空间" loading="lazy">
+      <div class="narr" style="position:absolute;top:32px;left:0;right:0;">
+        <div class="nstep"><span class="nstep-en">Benchmark</span><span class="nstep-cn">标杆学习</span><span class="nstep-ch">Ch.01–03</span></div>
+        <div class="nstep"><span class="nstep-en">Insight</span><span class="nstep-cn">趋势洞察</span><span class="nstep-ch">Ch.04–05</span></div>
+        <div class="nstep"><span class="nstep-en">Diagnosis</span><span class="nstep-cn">自我诊断</span><span class="nstep-ch">Ch.06–07</span></div>
+        <div class="nstep"><span class="nstep-en">Value</span><span class="nstep-cn">价值定义</span><span class="nstep-ch">Ch.08–12</span></div>
+        <div class="nstep"><span class="nstep-en">Spec</span><span class="nstep-cn">规范建立</span><span class="nstep-ch">Ch.13–16</span></div>
+      </div>
+      <div style="position:absolute;inset:0;background:linear-gradient(105deg, rgba(20,16,10,0.88) 0%, rgba(20,16,10,0.28) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:40px 56px;">
+        <div class="eyebrow">XENJOY 绝影 · H4 调性产品线</div>
+        <div class="h0" style="margin-bottom:6px;">H4<br>产品识别系统</div>
+        <div style="font-family:'DM Sans';font-size:16px;font-weight:200;font-style:italic;color:var(--dk-gold);opacity:0.8;margin-bottom:28px;letter-spacing:0.04em;">Product Identity System · PIS 提报</div>
+        <div style="display:flex;gap:50px;padding-top:20px;border-top:1px solid rgba(196,168,130,0.1);">
+          <div><div class="stat-n">16</div><div class="stat-l">Chapters</div></div>
+          <div><div class="stat-n">A·B</div><div class="stat-l">分析 · 规划</div></div>
+          <div><div class="stat-n">4</div><div class="stat-l">Core Specs</div></div>
+          <div><div class="stat-n">3</div><div class="stat-l">Benchmarks</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">从零建立 H4 设计语言 · 系统化规则体系</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S02 · TOC
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-light"><span class="tag tag-l">目录 · Contents</span><span class="pg pg-l">02</span></div>
+  <div class="body" style="flex-direction:column;background:var(--bg);">
+    <div style="padding:16px 43px 9px;flex-shrink:0;">
+      <div class="mlabel">目录概览</div>
+    </div>
+    <div class="toc">
+      <div class="toc-col">
+        <div class="toc-head"><div class="toc-dot"></div>Part A · 分析与洞察 · Ch.01–07</div>
+        <div class="toc-row"><span class="toc-n">01</span><span class="toc-t">WaterRower | NOHRD 标杆分析</span></div>
+        <div class="toc-row"><span class="toc-n">02</span><span class="toc-t">PENT. 标杆分析</span></div>
+        <div class="toc-row"><span class="toc-n">03</span><span class="toc-t">标杆对比：绝影 H4 的机会</span></div>
+        <div class="toc-row"><span class="toc-n">03+</span><span class="toc-t toc-t-new">品牌对比深度拆解（引导+8维，共9页）</span></div>
+        <div class="toc-row"><span class="toc-n">04</span><span class="toc-t">目标用户趋势</span></div>
+        <div class="toc-row"><span class="toc-n">05</span><span class="toc-t">精奢健身设计趋势</span></div>
+        <div class="toc-row"><span class="toc-n">06</span><span class="toc-t">H4 现有产品盘点</span></div>
+        <div class="toc-row"><span class="toc-n">07</span><span class="toc-t">H4 PI 诊断</span></div>
+      </div>
+      <div class="toc-col">
+        <div class="toc-head"><div class="toc-dot"></div>Part B · PIS 规划 · Ch.08–16</div>
+        <div class="toc-row"><span class="toc-n">08</span><span class="toc-t">PIS 说明</span></div>
+        <div class="toc-row"><span class="toc-n">09</span><span class="toc-t">感性价值 · 奢稀境</span></div>
+        <div class="toc-row"><span class="toc-n">10</span><span class="toc-t">理性价值</span></div>
+        <div class="toc-row"><span class="toc-n">11</span><span class="toc-t">调性定位</span></div>
+        <div class="toc-row"><span class="toc-n">12</span><span class="toc-t">识别度权重模型</span></div>
+        <div class="toc-row"><span class="toc-n">12+</span><span class="toc-t toc-t-new">四大规范来源解析</span></div>
+        <div class="toc-row"><span class="toc-n">13</span><span class="toc-t">A · 色彩规范</span></div>
+        <div class="toc-row"><span class="toc-n">14</span><span class="toc-t">B · 造型规范</span></div>
+        <div class="toc-row"><span class="toc-n">15</span><span class="toc-t">C · 材质规范</span></div>
+        <div class="toc-row"><span class="toc-n">16</span><span class="toc-t">D · Logo 规范</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-light"><span class="bot-l-text bot-l-tl">Part A 分析洞察 · Part B PIS 规划</span><span class="sig sig-l">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S03 · Ch.01 WaterRower
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.01 · WaterRower | NOHRD 标杆分析</span><span class="pg pg-d">03</span></div>
+  <div class="body">
+    <div class="split-4-6" style="width:100%;">
+      <div class="pad col-center vd-d" style="background:var(--dk-2);gap:20px;">
+        <div>
+          <div class="eyebrow">Benchmark 01 · 同品类 · 材质叙事派</div>
+          <div class="h1" style="margin-bottom:12px;">WaterRower<br>| NOHRD</div>
+          <div class="kicker">"材质即叙事，<br>静置时是雕塑，<br>运动时是冥想工具。"</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:1px solid rgba(196,168,130,0.1);">
+          <div class="body-txt"><strong>木材主导</strong> — 胡桃木·樱桃木·白蜡木，丹麦油三遍手涂，零专属色</div>
+          <div class="body-txt"><strong>跨品类统一</strong> — 划船机·单车·哑铃，同一材质语言</div>
+          <div class="body-txt"><strong>Logo 克制</strong> — 木刻，隐于座椅下方，同材同工艺</div>
+        </div>
+      </div>
+      <div class="img-fill">
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1100&h=900&q=88" alt="WaterRower" loading="lazy">
+        <div class="ov-bottom" style="padding:20px 36px;">
+          <div class="eyebrow" style="margin-bottom:6px;">启示 → H4</div>
+          <div class="h2">一套材质语言可跨越所有品类边界</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Ch.01 · 标杆分析 · WaterRower | NOHRD</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S04 · Ch.02 PENT.
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.02 · PENT. 标杆分析</span><span class="pg pg-d">04</span></div>
+  <div class="body">
+    <div class="split-6-4" style="width:100%;">
+      <div class="img-fill">
+        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=1200&h=900&q=90" alt="PENT." loading="lazy">
+        <div class="ov-bottom" style="padding:20px 36px;">
+          <div class="eyebrow" style="margin-bottom:6px;">Benchmark 02 · 同品类 · CMF 精确组合派</div>
+          <div class="h2" style="max-width:440px;">金属 × 木材 × 皮革<br>有限选项精确组合制造独特性</div>
+        </div>
+      </div>
+      <div class="pad col-center vd-d" style="background:var(--dk-2);gap:20px;">
+        <div>
+          <div class="eyebrow">PENT. · 波兰</div>
+          <div class="h1" style="margin-bottom:12px;">Real luxury<br><em>is handmade.</em></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:1px solid rgba(196,168,130,0.1);">
+          <div class="body-txt"><strong>CMF 三维矩阵</strong> — 金属·木材·皮革，每种都是真实材质</div>
+          <div class="body-txt"><strong>$228–$18,995</strong> — 按单手工定制</div>
+          <div class="body-txt"><strong>撞色手工缝线</strong> — 低成本高辨识度的品牌细节</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Ch.02 · 标杆分析 · PENT.</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S05 · Ch.03 差异化三角
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.03 · 标杆对比 · 绝影 H4 的机会</span><span class="pg pg-d">05</span></div>
+  <div class="body">
+    <div class="img-fill" style="flex:1;">
+      <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1600&h=900&q=88" alt="精奢空间" loading="lazy">
+      <div style="position:absolute;inset:0;background:rgba(20,16,10,0.78);display:grid;grid-template-columns:1fr 1fr 1fr;padding:32px 50px;gap:1px;">
+        <div style="border-right:1px solid rgba(196,168,130,0.12);padding-right:44px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:58px;font-weight:200;color:rgba(196,168,130,0.18);line-height:1;">一</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:18px;font-weight:400;color:var(--dk-gold);">套系化空间美学</div>
+          <div class="body-txt">提供跑步机/划船机/哑铃美学一致的完整套系。<strong>这是两个标杆都无法做到的。</strong></div>
+        </div>
+        <div style="border-right:1px solid rgba(196,168,130,0.12);padding:0 43px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:58px;font-weight:200;color:rgba(196,168,130,0.18);line-height:1;">二</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:18px;font-weight:400;color:var(--dk-gold);">中国本土文化叙事</div>
+          <div class="body-txt">以中国高净值生活美学为出发点。<strong>竞品无法复制的差异化空间。</strong></div>
+        </div>
+        <div style="padding-left:43px;display:flex;flex-direction:column;justify-content:center;gap:16px;">
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:58px;font-weight:200;color:rgba(196,168,130,0.18);line-height:1;">三</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:18px;font-weight:400;color:var(--dk-gold);">智能科技深度整合</div>
+          <div class="body-txt">EMS / AI 辅助 / 实时数据反馈。<strong>三个标杆都不具备的维度。</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Ch.03 · 差异化三角 · 套系化 × 本土叙事 × 智能科技</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S06 · 品牌对比引导页（承接Ch.03）
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.03+ · 三个品牌 × 八个维度 · 相同处验证方向 · 差异处定义机会</span><span class="pg pg-d">06</span></div>
+  <div class="body">
+    <div class="img-fill dim" style="flex:1;">
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&h=900&q=90" alt="三品牌对比" loading="lazy">
+      <div style="position:absolute;inset:0;background:rgba(20,16,10,0.78);display:grid;grid-template-columns:1fr 1fr;padding:40px 56px;gap:56px;align-items:center;">
+        <div style="display:flex;flex-direction:column;gap:20px;border-right:1px solid rgba(196,168,130,0.1);padding-right:56px;">
+          <div>
+            <div class="km-badge" style="margin-bottom:16px;">三品牌深度对比 · 接续 Ch.03</div>
+            <div class="h0" style="font-size:33px;margin-bottom:10px;">每一个维度<br>独立展开</div>
+            <div class="kicker" style="margin-bottom:12px;">三者在相同处验证了 H4 的方向——<br>在差异处留下了 H4 的机会。</div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(196,168,130,0.1);">
+            <div style="background:rgba(20,16,10,0.6);padding:12px 20px;text-align:center;border-top:2px solid rgba(74,122,92,0.7);">
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:11px;font-weight:400;color:rgba(240,234,224,0.75);margin-bottom:3px;">WaterRower</div>
+              <div class="body-txt">材质叙事派</div>
+            </div>
+            <div style="background:rgba(20,16,10,0.6);padding:12px 20px;text-align:center;border-top:2px solid rgba(122,88,40,0.7);">
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:11px;font-weight:400;color:rgba(240,234,224,0.75);margin-bottom:3px;">PENT.</div>
+              <div class="body-txt">CMF 精确组合派</div>
+            </div>
+            <div style="background:rgba(20,16,10,0.6);padding:12px 20px;text-align:center;border-top:2px solid rgba(59,90,154,0.6);">
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:11px;font-weight:400;color:rgba(240,234,224,0.75);margin-bottom:3px;">Bang &amp; Olufsen</div>
+              <div class="body-txt">静置态哲学派</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="eyebrow" style="margin-bottom:4px;">八个维度 · 逐一展开</div>
+          <div style="display:flex;flex-direction:column;gap:4px;">
+            <div style="display:flex;align-items:center;gap:12px;padding:5px 12px;background:rgba(196,168,130,0.06);border-left:1.5px solid rgba(196,168,130,0.25);">
+              <span style="font-size:8px;letter-spacing:0.18em;color:rgba(196,168,130,0.45);width:28px;flex-shrink:0;">01</span>
+              <span class="body-txt">品类定位</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:5px 12px;background:rgba(196,168,130,0.06);border-left:1.5px solid rgba(196,168,130,0.25);">
+              <span style="font-size:8px;letter-spacing:0.18em;color:rgba(196,168,130,0.45);width:28px;flex-shrink:0;">02</span>
+              <span class="body-txt">核心材质</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:5px 12px;background:rgba(196,168,130,0.06);border-left:1.5px solid rgba(196,168,130,0.25);">
+              <span style="font-size:8px;letter-spacing:0.18em;color:rgba(196,168,130,0.45);width:28px;flex-shrink:0;">03</span>
+              <span class="body-txt">色彩策略</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:5px 12px;background:rgba(196,168,130,0.06);border-left:1.5px solid rgba(196,168,130,0.25);">
+              <span style="font-size:8px;letter-spacing:0.18em;color:rgba(196,168,130,0.45);width:28px;flex-shrink:0;">04</span>
+              <span class="body-txt">静置态设计</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:5px 12px;background:rgba(196,168,130,0.06);border-left:1.5px solid rgba(196,168,130,0.25);">
+              <span style="font-size:8px;letter-spacing:0.18em;color:rgba(196,168,130,0.45);width:28px;flex-shrink:0;">05</span>
+              <span class="body-txt">Logo 策略</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:5px 12px;background:rgba(196,168,130,0.06);border-left:1.5px solid rgba(196,168,130,0.25);">
+              <span style="font-size:8px;letter-spacing:0.18em;color:rgba(196,168,130,0.45);width:28px;flex-shrink:0;">06</span>
+              <span class="body-txt">智能科技 — <em style="font-style:italic;color:var(--dk-gold);">H4 的独有机会</em></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:5px 12px;background:rgba(196,168,130,0.06);border-left:1.5px solid rgba(196,168,130,0.25);">
+              <span style="font-size:8px;letter-spacing:0.18em;color:rgba(196,168,130,0.45);width:28px;flex-shrink:0;">07</span>
+              <span class="body-txt">品牌文化 — <em style="font-style:italic;color:var(--dk-gold);">H4 的独有机会</em></span>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;padding:5px 12px;background:rgba(196,168,130,0.06);border-left:1.5px solid rgba(196,168,130,0.25);">
+              <span style="font-size:8px;letter-spacing:0.18em;color:rgba(196,168,130,0.45);width:28px;flex-shrink:0;">08</span>
+              <span class="body-txt">产品套系 — <em style="font-style:italic;color:var(--dk-gold);">H4 的独有机会</em></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">三品牌 × 八维度对比 · 相同处验证方向 · 差异处定义机会</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  品牌对比 8 维拆解
+  S07–S14
+════════════════════════════ -->
+
+<!-- S07 · 维度01 品类定位 -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">品牌对比 · 01/08 · 品类定位</span><span class="pg pg-d">07</span></div>
+  <div class="body">
+    <div class="col4" style="width:100%;height:100%;">
+      <!-- WaterRower -->
+      <div style="position:relative;overflow:hidden;border-right:1px solid rgba(196,168,130,0.1);">
+        <div style="height:3px;" class="strip-wr"></div>
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&h=900&q=85" alt="WR" style="width:100%;height:calc(100% - 3px);object-fit:cover;display:block;filter:brightness(0.5) contrast(1.1) saturate(0.55);">
+        <div class="ov-left" style="gap:12px;">
+          <div class="eyebrow" style="margin-bottom:0;">WaterRower</div>
+          <div class="pill pill-same" style="align-self:flex-start;">◎ 相同</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:400;color:rgba(240,234,224,0.9);line-height:1.3;">健身器材<br>同品类</div>
+          <div class="body-txt" style="max-width:240px;">覆盖划船机·单车·哑铃·壁挂器械，全品类同一设计语言。</div>
+        </div>
+      </div>
+      <!-- PENT. -->
+      <div style="position:relative;overflow:hidden;border-right:1px solid rgba(196,168,130,0.1);">
+        <div style="height:3px;" class="strip-pt"></div>
+        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=500&h=900&q=85" alt="PT" style="width:100%;height:calc(100% - 3px);object-fit:cover;display:block;filter:brightness(0.5) contrast(1.1) saturate(0.55);">
+        <div class="ov-left" style="gap:12px;">
+          <div class="eyebrow" style="margin-bottom:0;">PENT.</div>
+          <div class="pill pill-same" style="align-self:flex-start;">◎ 相同</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:400;color:rgba(240,234,224,0.9);line-height:1.3;">健身器材<br>同品类</div>
+          <div class="body-txt" style="max-width:240px;">哑铃·壶铃·药球·健身凳，精品健身器具全系，$228–$18,995。</div>
+        </div>
+      </div>
+      <!-- B&O -->
+      <div style="position:relative;overflow:hidden;border-right:1px solid rgba(196,168,130,0.1);">
+        <div style="height:3px;" class="strip-bo"></div>
+        <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=500&h=900&q=85" alt="BO" style="width:100%;height:calc(100% - 3px);object-fit:cover;display:block;filter:brightness(0.5) contrast(1.1) saturate(0.55);">
+        <div class="ov-left" style="gap:12px;">
+          <div class="eyebrow" style="margin-bottom:0;">Bang &amp; Olufsen</div>
+          <div class="pill pill-diff" style="align-self:flex-start;">✕ 不同</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:400;color:rgba(240,234,224,0.9);line-height:1.3;">音频产品<br>跨品类</div>
+          <div class="body-txt" style="max-width:240px;">命题同构——功能性产品如何同时成为家居陈设？</div>
+        </div>
+      </div>
+      <!-- H4 -->
+      <div style="position:relative;overflow:hidden;background:rgba(139,106,58,0.06);border-left:2px solid var(--gold);">
+        <div style="height:3px;" class="strip-h4"></div>
+        <div class="pad col-center" style="height:calc(100% - 3px);gap:16px;">
+          <div>
+            <div class="eyebrow-l" style="margin-bottom:8px;">绝影 H4 · 目标方向</div>
+            <div class="h1-dark" style="margin-bottom:12px;">健身器材<br><em>精奢调性线</em></div>
+          </div>
+          <div class="kicker-l">选 B&amp;O 的原因不是品类，而是它解决了同一个命题。</div>
+          <div style="display:flex;flex-direction:column;gap:5px;padding-top:12px;border-top:1px solid var(--rule);">
+            <div style="font-size:10px;color:var(--muted);">目标价格带 ¥5,000–¥50,000+</div>
+            <div style="font-size:10px;color:var(--muted);">家居装置思维，非健身房思维</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">维度 01/08 · 品类定位</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- S07 · 维度02 核心材质 -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">品牌对比 · 02/08 · 核心材质</span><span class="pg pg-d">08</span></div>
+  <div class="body">
+    <div class="split-6-4" style="width:100%;">
+      <div class="img-fill">
+        <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=1100&h=900&q=88" alt="材质" loading="lazy">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(20,16,10,0.05) 0%, rgba(20,16,10,0.0) 100%);"></div>
+        <div class="ov-tl">Core Material · CMF</div>
+        <!-- three brand strips bottom -->
+        <div style="position:absolute;bottom:0;left:0;right:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;">
+          <div style="background:rgba(20,16,10,0.82);padding:12px 24px;">
+            <div style="height:2px;margin-bottom:8px;" class="strip-wr"></div>
+            <div style="font-size:10px;color:rgba(196,168,130,0.7);font-family:'Noto Sans SC',sans-serif;font-weight:400;margin-bottom:3px;">WaterRower</div>
+            <div class="body-txt">天然木材单一主导，<strong>木纹差异即稀缺价值</strong>，不是品控问题。</div>
+          </div>
+          <div style="background:rgba(20,16,10,0.82);padding:12px 24px;">
+            <div style="height:2px;margin-bottom:8px;" class="strip-pt"></div>
+            <div style="font-size:10px;color:rgba(196,168,130,0.7);font-family:'Noto Sans SC',sans-serif;font-weight:400;margin-bottom:3px;">PENT.</div>
+            <div class="body-txt">金属×木材×皮革三维矩阵，<strong>每种材质都是真实的</strong>，无仿材。</div>
+          </div>
+          <div style="background:rgba(20,16,10,0.82);padding:12px 24px;">
+            <div style="height:2px;margin-bottom:8px;" class="strip-bo"></div>
+            <div style="font-size:10px;color:rgba(196,168,130,0.7);font-family:'Noto Sans SC',sans-serif;font-weight:400;margin-bottom:3px;">Bang &amp; Olufsen</div>
+            <div class="body-txt">铝+木+织物，<strong>同材同工艺原则</strong>，材质处理逻辑与产品本体保持一致。</div>
+          </div>
+        </div>
+      </div>
+      <div class="pad col-center" style="background:rgba(139,106,58,0.04);border-left:2px solid var(--gold);gap:20px;">
+        <div>
+          <div class="pill pill-same" style="margin-bottom:10px;">◎ 三者与 H4 高度相同</div>
+          <div class="h1-dark" style="margin-bottom:12px;">精材四类<br><em>体系</em></div>
+          <div class="kicker-l">天然差异即价值，不是需要消除的缺陷。</div>
+        </div>
+        <ul class="slist">
+          <li><strong>实木</strong> — 橡木 / 胡桃木，丹麦油手涂，禁止贴皮</li>
+          <li><strong>精钢</strong> — CNC 精密加工，拉丝哑光</li>
+          <li><strong>真皮</strong> — 头层全粒面，禁止 PU 皮</li>
+          <li><strong>精纺织物</strong> — 功能性亲肤层</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">维度 02/08 · 核心材质</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- S08 · 维度03 色彩策略 -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">品牌对比 · 03/08 · 色彩策略</span><span class="pg pg-d">09</span></div>
+  <div class="body">
+    <div class="split-4-6" style="width:100%;">
+      <div class="pad col-center vd-d" style="background:var(--dk-2);gap:20px;">
+        <div>
+          <div class="pill pill-same" style="margin-bottom:10px;">◎ 三者高度相同</div>
+          <div class="h1" style="margin-bottom:12px;">材质本色<br><em>即品牌色</em></div>
+          <div class="kicker">不用涂装色，让材质说话。</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:1px solid rgba(196,168,130,0.1);">
+          <div class="body-txt"><strong style="color:rgba(196,168,130,0.65);">WaterRower</strong> — 零专属品牌色，木材纹理即色彩体系</div>
+          <div class="body-txt"><strong style="color:rgba(196,168,130,0.65);">PENT.</strong> — 金属本色+木材本色，不引入第三种外加颜色</div>
+          <div class="body-txt"><strong style="color:rgba(196,168,130,0.65);">B&amp;O</strong> — 铝本色+木端盖本色，色彩系统极度自律</div>
+        </div>
+        <div style="background:rgba(139,106,58,0.08);border-left:2px solid var(--gold);padding:12px 20px;">
+          <div class="body-txt" style="color:var(--dk-gold);"><strong>H4 规范</strong>：木材 ≥55% · 镜面钢 25–35% · 黄铜金 ≤10%</div>
+        </div>
+      </div>
+      <div class="img-fill">
+        <img src="https://images.unsplash.com/photo-1617957689233-207e3cd3b9ca?auto=format&fit=crop&w=1100&h=900&q=88" alt="色彩" loading="lazy">
+        <div class="ov-tl">Color Strategy</div>
+        <div class="ov-bottom" style="padding:20px 36px;">
+          <div class="eyebrow" style="margin-bottom:6px;">H4 · 色彩从精材中自然生长</div>
+          <div class="h2">禁止大面积涂装色 · 禁止亮光金替代真实黄铜</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">维度 03/08 · 色彩策略</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- S09 · 维度04 静置态 -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">品牌对比 · 04/08 · 静置态设计</span><span class="pg pg-d">10</span></div>
+  <div class="body">
+    <div class="col4" style="width:100%;height:100%;">
+      <div style="position:relative;overflow:hidden;border-right:1px solid rgba(196,168,130,0.1);">
+        <div style="height:3px;" class="strip-wr"></div>
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=500&h=900&q=85" alt="WR静置" style="width:100%;height:calc(100% - 3px);object-fit:cover;display:block;filter:brightness(0.48) contrast(1.12) saturate(0.55);">
+        <div class="ov-left" style="gap:10px;">
+          <div class="eyebrow" style="margin-bottom:0;">WaterRower</div>
+          <div class="pill pill-same" style="align-self:flex-start;">◎ 相同</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:400;color:rgba(240,234,224,0.9);line-height:1.3;">立放即雕塑<br>核心设计命题</div>
+          <div class="body-txt" style="max-width:240px;">产品摄影 70% 展示静置态，称之为"sculptural presence"。</div>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-right:1px solid rgba(196,168,130,0.1);">
+        <div style="height:3px;" class="strip-pt"></div>
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=500&h=900&q=85" alt="PT静置" style="width:100%;height:calc(100% - 3px);object-fit:cover;display:block;filter:brightness(0.48) contrast(1.12) saturate(0.55);">
+        <div class="ov-left" style="gap:10px;">
+          <div class="eyebrow" style="margin-bottom:0;">PENT.</div>
+          <div class="pill pill-weak" style="align-self:flex-start;">△ 弱</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:400;color:rgba(240,234,224,0.9);line-height:1.3;">使用态优先<br>静置态非重点</div>
+          <div class="body-txt" style="max-width:240px;">产品体积小，陈设感来自品类天然属性，非刻意设计。</div>
+        </div>
+      </div>
+      <div style="position:relative;overflow:hidden;border-right:1px solid rgba(196,168,130,0.1);">
+        <div style="height:3px;" class="strip-bo"></div>
+        <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=500&h=900&q=85" alt="BO静置" style="width:100%;height:calc(100% - 3px);object-fit:cover;display:block;filter:brightness(0.48) contrast(1.12) saturate(0.55);">
+        <div class="ov-left" style="gap:10px;">
+          <div class="eyebrow" style="margin-bottom:0;">Bang &amp; Olufsen</div>
+          <div class="pill pill-same" style="align-self:flex-start;">◎ 相同</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:400;color:rgba(240,234,224,0.9);line-height:1.3;">写入品牌哲学</div>
+          <div class="body-txt" style="max-width:240px;">"不使用时，你依然不想把它藏起来。"</div>
+        </div>
+      </div>
+      <div style="background:rgba(139,106,58,0.06);border-left:2px solid var(--gold);height:100%;">
+        <div style="height:3px;" class="strip-h4"></div>
+        <div class="pad col-center" style="height:calc(100% - 3px);gap:16px;">
+          <div>
+            <div class="eyebrow-l" style="margin-bottom:8px;">绝影 H4</div>
+            <div class="h1-dark" style="margin-bottom:12px;">双态<br><em>同等权重</em></div>
+            <div class="kicker-l">静置态是设计终点之一，与使用态同等重要。</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:5px;padding-top:12px;border-top:1px solid var(--rule);">
+            <div style="font-size:10px;color:var(--muted);">效果图需同时呈现静置态</div>
+            <div style="font-size:10px;color:var(--muted);">禁止"健身房感"机械结构外露</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">维度 04/08 · 静置态设计</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- S10 · 维度05 Logo 策略 -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">品牌对比 · 05/08 · Logo 策略</span><span class="pg pg-d">11</span></div>
+  <div class="body">
+    <div class="split-6-4" style="width:100%;">
+      <div class="img-fill">
+        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1100&h=900&q=88" alt="Logo" loading="lazy">
+        <div class="ov-tl">Brand Mark Strategy</div>
+        <div style="position:absolute;inset:0;display:grid;grid-template-rows:1fr 1fr;padding:40px 43px 24px;">
+          <div style="display:flex;align-items:flex-start;gap:28px;">
+            <div style="flex:1;background:rgba(20,16,10,0.75);padding:14px 24px;">
+              <div style="height:2px;margin-bottom:8px;" class="strip-wr"></div>
+              <div style="font-size:10px;color:rgba(196,168,130,0.7);margin-bottom:3px;">WaterRower</div>
+              <div class="pill pill-same" style="margin-bottom:5px;">◎ 相同</div>
+              <div class="body-txt">木刻，隐于座椅下方。<strong>克制即自信。</strong></div>
+            </div>
+            <div style="flex:1;background:rgba(20,16,10,0.75);padding:14px 24px;">
+              <div style="height:2px;margin-bottom:8px;" class="strip-pt"></div>
+              <div style="font-size:10px;color:rgba(196,168,130,0.7);margin-bottom:3px;">PENT.</div>
+              <div class="pill pill-weak" style="margin-bottom:5px;">△ 弱</div>
+              <div class="body-txt">金属铭牌，有克制感，<strong>但规范化不如另两者。</strong></div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-end;">
+            <div style="flex:1;background:rgba(20,16,10,0.75);padding:14px 24px;margin-right:28px;">
+              <div style="height:2px;margin-bottom:8px;" class="strip-bo"></div>
+              <div style="font-size:10px;color:rgba(196,168,130,0.7);margin-bottom:3px;">Bang &amp; Olufsen</div>
+              <div class="pill pill-same" style="margin-bottom:5px;">◎ 相同</div>
+              <div class="body-txt">激光蚀刻融入铝材，面积 ≤5%，<strong>同材同工艺。</strong></div>
+            </div>
+            <div style="flex:1;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="pad col-center" style="background:rgba(139,106,58,0.04);border-left:2px solid var(--gold);gap:20px;">
+        <div>
+          <div class="eyebrow-l" style="margin-bottom:10px;">绝影 H4 · Logo 规范</div>
+          <div class="h1-dark" style="margin-bottom:12px;">单件<br>只设一处</div>
+          <div class="kicker-l">产品本身是最好的品牌声明，Logo 是注脚，而非标题。</div>
+        </div>
+        <ul class="slist">
+          <li>木件 → 激光雕刻</li>
+          <li>金属件 → 激光蚀刻 / 铭牌</li>
+          <li>皮件 → 热压烫印</li>
+          <li>位置 → 视觉路径末端，非正面中央</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">维度 05/08 · Logo 策略</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- S11 · 维度06 智能科技 -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">品牌对比 · 06/08 · 智能科技</span><span class="pg pg-d">12</span></div>
+  <div class="body">
+    <div class="split-4-6" style="width:100%;">
+      <div class="pad col-center vd-d" style="background:var(--dk-2);gap:20px;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:10px;">三者均 · 主动放弃</div>
+          <div class="h1" style="margin-bottom:12px;">智能科技<br><em>三者空白</em></div>
+          <div class="body-txt"><strong>WaterRower</strong> — "无屏幕"是卖点，主动回避</div>
+          <div class="body-txt" style="margin-top:5px;"><strong>PENT.</strong> — 完全无电子，手工纯粹性是立场</div>
+          <div class="body-txt" style="margin-top:5px;"><strong>B&amp;O</strong> — 智能仅在音频层，与健身无关</div>
+        </div>
+        <div style="background:rgba(139,106,58,0.1);border-left:2px solid var(--gold);padding:14px 20px;">
+          <div class="body-txt" style="color:var(--dk-gold);font-size:13px;line-height:1.65;"><strong>H4 独有差异化</strong><br>EMS · AI 辅助 · 实时数据反馈</div>
+        </div>
+      </div>
+      <div class="img-fill">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1100&h=900&q=88" alt="智能" loading="lazy">
+        <div class="ov-bottom" style="padding:20px 36px;">
+          <div class="eyebrow" style="margin-bottom:6px;">三者留下的最大机会</div>
+          <div class="h2">智能化不是追赶，是绕开竞争的<br>独有差异化空间</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">维度 06/08 · 智能科技</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- S12 · 维度07 品牌文化 -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">品牌对比 · 07/08 · 品牌文化</span><span class="pg pg-d">13</span></div>
+  <div class="body">
+    <div class="split-6-4" style="width:100%;">
+      <div class="img-fill dim">
+        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1100&h=900&q=88" alt="品牌文化" loading="lazy">
+        <div style="position:absolute;inset:0;background:rgba(20,16,10,0.72);display:flex;flex-direction:column;justify-content:center;padding:32px 57px;gap:16px;">
+          <div class="eyebrow">三者均 · 西方文化叙事 · 无法进入中国本土</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
+            <div>
+              <div style="height:2px;margin-bottom:10px;" class="strip-wr"></div>
+              <div class="pill pill-diff" style="margin-bottom:6px;">✕ 不同</div>
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:13px;font-weight:400;color:rgba(240,234,224,0.82);margin-bottom:4px;">美国工匠传统<br>欧洲北欧美学</div>
+              <div class="body-txt">New England Craftsmanship</div>
+            </div>
+            <div>
+              <div style="height:2px;margin-bottom:10px;" class="strip-pt"></div>
+              <div class="pill pill-diff" style="margin-bottom:6px;">✕ 不同</div>
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:13px;font-weight:400;color:rgba(240,234,224,0.82);margin-bottom:4px;">波兰手工艺传统<br>欧洲奢品叙事</div>
+              <div class="body-txt">Handcrafted in Poland</div>
+            </div>
+            <div>
+              <div style="height:2px;margin-bottom:10px;" class="strip-bo"></div>
+              <div class="pill pill-diff" style="margin-bottom:6px;">✕ 不同</div>
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:13px;font-weight:400;color:rgba(240,234,224,0.82);margin-bottom:4px;">丹麦斯堪的纳维亚<br>极简美学</div>
+              <div class="body-txt">Danish Design Legacy</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pad col-center" style="background:rgba(139,106,58,0.04);border-left:2px solid var(--gold);gap:20px;">
+        <div>
+          <div class="eyebrow-l" style="margin-bottom:10px;">绝影 H4 · 文化机会</div>
+          <div class="h1-dark" style="margin-bottom:12px;">中国<br><em>高净值生活美学</em></div>
+          <div class="kicker-l">三者都无法进入的叙事空间。</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px;padding-top:12px;border-top:1px solid var(--rule);">
+          <div style="font-size:10px;color:var(--muted);">当代中国精奢家居审美</div>
+          <div style="font-size:10px;color:var(--muted);">奢 · 稀 · 境 — 中文感性坐标</div>
+          <div style="font-size:10px;color:var(--muted);">无法被任何西方品牌复制</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">维度 07/08 · 品牌文化</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- S13 · 维度08 产品套系 -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">品牌对比 · 08/08 · 产品套系</span><span class="pg pg-d">14</span></div>
+  <div class="body">
+    <div class="split-4-6" style="width:100%;">
+      <div class="pad col-center vd-d" style="background:var(--dk-2);gap:20px;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:10px;">三者均 · 单件产品逻辑</div>
+          <div class="h1" style="margin-bottom:12px;">无整体空间<br><em>解决方案</em></div>
+          <div class="body-txt"><strong>WaterRower</strong> — 全品类但无套系空间叙事</div>
+          <div class="body-txt" style="margin-top:5px;"><strong>PENT.</strong> — 按单定制，与套系化逻辑矛盾</div>
+          <div class="body-txt" style="margin-top:5px;"><strong>B&amp;O</strong> — 音频品类，不涉及健身空间</div>
+        </div>
+        <div style="background:rgba(139,106,58,0.1);border-left:2px solid var(--gold);padding:14px 20px;">
+          <div class="body-txt" style="color:var(--dk-gold);font-size:13px;line-height:1.65;"><strong>H4 核心差异化</strong><br>跑步机·划船机·哑铃共享同一设计语言，构成完整家居健身空间</div>
+        </div>
+      </div>
+      <div class="img-fill">
+        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1100&h=900&q=88" alt="套系" loading="lazy">
+        <div class="ov-bottom" style="padding:20px 36px;">
+          <div class="eyebrow" style="margin-bottom:6px;">套系化不是外形相同，而是设计语言的一致性</div>
+          <div class="h2">这是三个标杆共同留下的<br>最大空白</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">维度 08/08 · 产品套系</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S14 · Ch.04+05 趋势
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.04 目标用户趋势 · Ch.05 精奢健身设计趋势</span><span class="pg pg-d">15</span></div>
+  <div class="body">
+    <div class="split-4-6" style="width:100%;">
+      <div class="pad col-center vd-d" style="background:var(--dk-2);gap:20px;">
+        <div>
+          <div class="eyebrow">Ch.04 · 目标用户趋势</div>
+          <div class="h1" style="margin-bottom:12px;">健身房思维<br><em>→ 家居装置思维</em></div>
+          <div class="kicker">器械从功能工具变成空间陈设，购买决策从"性能参数"转向"放在家里好不好看"。</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:1px solid rgba(196,168,130,0.1);">
+          <div class="body-txt"><strong>核心转变</strong> — 空间美学、场景仪式感和生活方式表达</div>
+          <div class="body-txt"><strong>中国特性</strong> — 更注重整体空间调性一致性</div>
+          <div class="body-txt"><strong>智能期待</strong> — 欢迎数据，但不接受破坏精奢材质主轴</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;height:100%;overflow:hidden;">
+        <div style="padding:12px 36px 8px;flex-shrink:0;background:var(--dk-3);border-bottom:1px solid rgba(196,168,130,0.08);">
+          <div class="eyebrow">Ch.05 · 精奢健身设计趋势</div>
+          <div style="font-family:'Noto Sans SC',sans-serif;font-size:15px;font-weight:300;color:rgba(240,234,224,0.82);">全球收敛于四个方向</div>
+        </div>
+        <div class="trend" style="flex:1;">
+          <div class="trend-c">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=400&h=600&q=85" alt="去机械感" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.6) contrast(1.1) saturate(0.55);">
+            <div class="trend-lbl">去机械感</div>
+          </div>
+          <div class="trend-c">
+            <img src="https://images.unsplash.com/photo-1615674822344-ab69abe47bdc?auto=format&fit=crop&w=400&h=600&q=85" alt="自然材质" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.6) contrast(1.1) saturate(0.55);">
+            <div class="trend-lbl">自然材质回归</div>
+          </div>
+          <div class="trend-c">
+            <img src="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?auto=format&fit=crop&w=400&h=600&q=85" alt="套系空间化" style="width:100%;height:100%;object-fit:cover;display:block;filter:brightness(0.6) contrast(1.1) saturate(0.55);">
+            <div class="trend-lbl">套系化·空间化</div>
+          </div>
+        </div>
+        <div style="padding:10px 36px;flex-shrink:0;background:var(--dk-2);border-top:1px solid rgba(196,168,130,0.08);">
+          <div class="body-txt"><strong>克制与精度</strong> — 精奢感来自精密度和减法设计，每个可见面都需要设计决策。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Ch.04 用户趋势 · Ch.05 设计趋势</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S15 · Ch.06+07 诊断
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-light"><span class="tag tag-l">Ch.06 H4 现有产品盘点 · Ch.07 H4 PI 诊断</span><span class="pg pg-l">16</span></div>
+  <div class="body" style="background:var(--bg);">
+    <div class="col2" style="width:100%;">
+      <div class="pad vd" style="display:flex;flex-direction:column;gap:16px;overflow:hidden;">
+        <div>
+          <div class="mlabel">Ch.06 · H4 现有产品盘点</div>
+          <div class="h1-dark" style="margin-bottom:10px;">XD10 扶光<br><em>哑铃组</em></div>
+          <div class="kicker-l">H4 唯一完整产品，证明了做出精奢产品的能力。</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);flex:1;overflow:hidden;">
+          <div style="background:var(--bg);padding:12px 20px;"><div style="font-size:7.5px;letter-spacing:0.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px;">设计亮点</div><div class="body-txt-l" style="font-size:10px;">木纹握把与金属哑铃片材质对比；"扶光"命名体现文化方向尝试。</div></div>
+          <div style="background:var(--bg-2);padding:12px 20px;"><div style="font-size:7.5px;letter-spacing:0.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px;">材质现状</div><div class="body-txt-l" style="font-size:10px;">两种木色，金属本色，含黄铜点缀。方向初步形成，搭配规则待建立。</div></div>
+          <div style="background:var(--bg-2);padding:12px 20px;"><div style="font-size:7.5px;letter-spacing:0.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px;">Logo 现状</div><div class="body-txt-l" style="font-size:10px;">位置不在视觉重心，各产品工艺处理方式不统一。</div></div>
+          <div style="background:var(--bg);padding:12px 20px;"><div style="font-size:7.5px;letter-spacing:0.22em;color:var(--gold-d);text-transform:uppercase;margin-bottom:4px;">场景表现</div><div class="body-txt-l" style="font-size:10px;">已有家居场景图，方向正确，缺乏系统设计规则支撑。</div></div>
+        </div>
+      </div>
+      <div class="pad" style="display:flex;flex-direction:column;gap:14px;overflow:hidden;">
+        <div class="mlabel">Ch.07 · H4 PI 诊断</div>
+        <table class="diag">
+          <thead><tr><th>维度</th><th style="padding-right:20px;">现状观察</th><th>PIS 将定义</th></tr></thead>
+          <tbody>
+            <tr><td>形态</td><td>各品类形态逻辑独立，无跨品类延续基因</td><td class="pis">型面原则与双态设计要求</td></tr>
+            <tr><td>色彩</td><td>两种木色无使用规则，无品牌色彩策略</td><td class="pis">色彩比例规则与场景配色方案</td></tr>
+            <tr><td>材质</td><td>材质衔接无规范，等级体系未建立</td><td class="pis">天然精材体系与禁止材质清单</td></tr>
+            <tr><td>Logo</td><td>位置不在视觉重心，各产品工艺不统一</td><td class="pis">各材质 Logo 工艺标准与位置原则</td></tr>
+          </tbody>
+        </table>
+        <div class="concl" style="margin-top:auto;">
+          <div class="concl-lbl">诊断核心结论</div>
+          <div class="concl-main">H4 已有方向感，但还没有设计语言。</div>
+          <div class="concl-sub">PIS 不是推翻现有方向，而是把好的方向<strong>系统化、规则化</strong>。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-light"><span class="bot-l-text bot-l-tl">Ch.06 产品盘点 · Ch.07 PI 诊断</span><span class="sig sig-l">JeasonChou</span></div>
+</div>
+
+
+<!-- ════════════════════════════
+  KM · Part A→B 转折页
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Part A 结论 · H4 已有方向感，但还没有设计语言</span><span class="pg pg-d">17</span></div>
+  <div class="body">
+    <div class="img-fill dim" style="flex:1;">
+      <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&h=900&q=90" alt="转折" loading="lazy">
+      <div style="position:absolute;inset:0;background:rgba(20,16,10,0.82);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;text-align:center;padding:40px 80px;">
+        <div class="km-badge">Part A → Part B · 叙事转折点</div>
+        <div class="h0" style="font-size:39px;max-width:820px;text-align:center;line-height:1.15;">H4 已有方向感，<br>但还没有<em>设计语言</em>。</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:300;font-style:italic;color:rgba(196,168,130,0.6);max-width:640px;line-height:1.65;">PIS 的任务不是推翻现有方向，<br>而是把好的方向系统化、规则化——<br>建立一套可执行的规则体系。</div>
+        <div style="display:flex;gap:56px;padding-top:24px;border-top:1px solid rgba(196,168,130,0.12);">
+          <div style="text-align:center;">
+            <div style="font-size:8px;letter-spacing:0.32em;color:rgba(196,168,130,0.35);text-transform:uppercase;margin-bottom:6px;">Part A · 完成</div>
+            <div style="font-family:'Noto Sans SC',sans-serif;font-size:13px;font-weight:300;color:rgba(240,234,224,0.6);">标杆学习 · 趋势洞察 · 自我诊断</div>
+          </div>
+          <div style="width:1px;background:rgba(196,168,130,0.15);flex-shrink:0;"></div>
+          <div style="text-align:center;">
+            <div style="font-size:8px;letter-spacing:0.32em;color:var(--dk-gold);text-transform:uppercase;margin-bottom:6px;opacity:0.7;">Part B · 开始</div>
+            <div style="font-family:'Noto Sans SC',sans-serif;font-size:13px;font-weight:400;color:rgba(240,234,224,0.85);">感性价值 → 理性价值 → 调性定位 → 四大规范</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Part A 结论 · 引出 Part B · PIS 系统规划</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S16 · Part B + Ch.08–11
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Part B · PIS 规划 · Ch.08–12 价值定义与权重</span><span class="pg pg-d">18</span></div>
+  <div class="body">
+    <div class="col4" style="width:100%;height:100%;">
+      <!-- Part B 入口 -->
+      <div class="km vd-d" style="display:flex;flex-direction:column;justify-content:center;gap:20px;padding:32px 44px;">
+        <div class="km-badge">Part B · PIS 规划</div>
+        <div class="h1" style="font-size:31px;">H4 PI<br>系统规划</div>
+        <div class="body-txt" style="max-width:280px;">感性价值 → 理性价值 → 调性定位 → 权重模型 → 四大规范</div>
+      </div>
+      <!-- 奢稀境 -->
+      <div style="background:var(--dk-2);padding:24px 36px;display:flex;flex-direction:column;gap:16px;border-right:1px solid rgba(196,168,130,0.1);">
+        <div class="eyebrow-l" style="color:var(--dk-gold);opacity:0.7;">Ch.09 · 感性价值</div>
+        <div class="h1" style="font-size:34px;">奢<br>稀<br>境</div>
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:auto;">
+          <div class="body-txt"><strong style="color:rgba(196,168,130,0.7);">奢</strong> — 精奢稀缺感 · 精材+精度</div>
+          <div class="body-txt"><strong style="color:rgba(196,168,130,0.7);">稀</strong> — 独特稀少性 · 天然差异即价值</div>
+          <div class="body-txt"><strong style="color:rgba(196,168,130,0.7);">境</strong> — 沉浸空间境况 · 三态融入</div>
+        </div>
+      </div>
+      <!-- 理性价值 -->
+      <div style="background:var(--dk-3);padding:24px 36px;display:flex;flex-direction:column;gap:16px;border-right:1px solid rgba(196,168,130,0.1);">
+        <div class="eyebrow-l" style="color:var(--dk-gold);opacity:0.7;">Ch.10 · 理性价值</div>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;">
+          <div><div style="font-size:7.5px;letter-spacing:0.22em;color:rgba(196,168,130,0.4);text-transform:uppercase;margin-bottom:3px;">支柱一</div><div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;font-weight:400;color:rgba(240,234,224,0.78);">精奢材质</div></div>
+          <div><div style="font-size:7.5px;letter-spacing:0.22em;color:rgba(196,168,130,0.4);text-transform:uppercase;margin-bottom:3px;">支柱二</div><div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;font-weight:400;color:rgba(240,234,224,0.78);">工艺精度</div></div>
+          <div><div style="font-size:7.5px;letter-spacing:0.22em;color:rgba(196,168,130,0.4);text-transform:uppercase;margin-bottom:3px;">支柱三</div><div style="font-family:'Noto Sans SC',sans-serif;font-size:14px;font-weight:400;color:rgba(240,234,224,0.78);">场景融入</div></div>
+        </div>
+      </div>
+      <!-- 调性定位 + 权重 -->
+      <div style="background:var(--dk-2);padding:24px 36px;display:flex;flex-direction:column;gap:16px;">
+        <div class="eyebrow-l" style="color:var(--dk-gold);opacity:0.7;">Ch.11 · 调性定位</div>
+        <div class="body-txt">精奢温润 · 克制有力 · 空间融入<br><strong>在 WaterRower 的冷静与家居风格的亲和之间</strong></div>
+        <div style="padding-top:16px;border-top:1px solid rgba(196,168,130,0.1);">
+          <div class="eyebrow-l" style="color:var(--dk-gold);opacity:0.7;margin-bottom:10px;">Ch.12 · 识别度权重</div>
+          <div class="wbar">
+            <div class="wb"><div class="wb-f" style="height:100%"></div><div class="wb-n">色彩</div><div class="wb-p">35%</div></div>
+            <div class="wb"><div class="wb-f" style="height:80%"></div><div class="wb-n">造型</div><div class="wb-p">28%</div></div>
+            <div class="wb"><div class="wb-f" style="height:77%"></div><div class="wb-n">材质</div><div class="wb-p">27%</div></div>
+            <div class="wb"><div class="wb-f" style="height:28%"></div><div class="wb-n">Logo</div><div class="wb-p">10%</div></div>
+          </div>
+          <div class="body-txt" style="margin-top:8px;">色彩+造型合计 <strong style="color:rgba(196,168,130,0.6);">63%</strong>，资源有限时优先保证这两项。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Part B · Ch.08–12 价值定义与权重模型</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S17 · 四大规范来源（移至Ch12后）
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">四大规范来源 · 每一条规范从哪里来？</span><span class="pg pg-d">19</span></div>
+  <div class="body" style="background:var(--bg);flex-direction:column;overflow:hidden;">
+    <div style="padding:14px 44px 9px;flex-shrink:0;">
+      <div class="mlabel">外部标杆验证 + 内部诊断缺口 → 四大规范</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);flex:1;overflow:hidden;border-top:1px solid var(--rule);">
+      <div class="rt">
+        <div class="rt-head"><div class="rt-big-l">A</div><div class="rt-name">色彩规范</div></div>
+        <div class="rt-body">
+          <div class="rt-why">外部 · 标杆验证</div>
+          <p class="rt-txt">三个标杆共同验证：<strong>材质本色即品牌色</strong>。WaterRower 零专属色，PENT. 金属本色+木材本色，B&amp;O 铝本色+木端盖本色。</p>
+          <div class="rt-why">内部 · H4 诊断</div>
+          <p class="rt-txt">H4 两种木色无使用比例规则，产品间木色比例完全不统一。<strong>最直接的问题，最容易修正。</strong></p>
+          <div class="rt-src">
+            <div class="rt-src-row"><div class="rt-dot">W</div><div>WaterRower — 零涂装色</div></div>
+            <div class="rt-src-row"><div class="rt-dot">P</div><div>PENT. — 本色+本色，不引入第三色</div></div>
+            <div class="rt-src-row"><div class="rt-dot">B</div><div>B&amp;O — 铝本色，极度自律</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rt">
+        <div class="rt-head"><div class="rt-big-l">B</div><div class="rt-name">造型规范</div></div>
+        <div class="rt-body">
+          <div class="rt-why">外部 · 标杆验证</div>
+          <p class="rt-txt">WaterRower 和 B&amp;O 共同证明：<strong>产品不使用时的静置形态，决定了用户是否愿意把它摆在家里。</strong></p>
+          <div class="rt-why">内部 · H4 诊断</div>
+          <p class="rt-txt">H4 现有产品造型优先考虑使用态，静置态几乎没有专门设计。<strong>这是进入高端家居场景最大的障碍。</strong></p>
+          <div class="rt-src">
+            <div class="rt-src-row"><div class="rt-dot">W</div><div>WaterRower — 立放时是雕塑</div></div>
+            <div class="rt-src-row"><div class="rt-dot">B</div><div>B&amp;O — "不使用时不想藏起来"</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rt">
+        <div class="rt-head"><div class="rt-big-l">C</div><div class="rt-name">材质规范</div></div>
+        <div class="rt-body">
+          <div class="rt-why">外部 · 标杆验证</div>
+          <p class="rt-txt">PENT. 证明：<strong>只要材质是真实的，有限选项就能产生无限独特组合。</strong> WaterRower 把木纹差异定义为价值而非缺陷。</p>
+          <div class="rt-why">内部 · H4 诊断</div>
+          <p class="rt-txt">H4 出现贴皮代替实木、镀层代替实钢的情况，且没有明文禁止。<strong>不建立诚实性原则，未来新品会在成本压力下滑向低端。</strong></p>
+          <div class="rt-src">
+            <div class="rt-src-row"><div class="rt-dot">P</div><div>PENT. — 无仿材，三维 CMF 矩阵</div></div>
+            <div class="rt-src-row"><div class="rt-dot">W</div><div>WaterRower — 木纹差异是稀缺来源</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="rt" style="border-right:none;">
+        <div class="rt-head"><div class="rt-big-l">D</div><div class="rt-name">Logo 规范</div></div>
+        <div class="rt-body">
+          <div class="rt-why">外部 · 标杆验证</div>
+          <p class="rt-txt">WaterRower Logo 藏于座椅下方，B&amp;O 激光蚀刻 ≤5%。<strong>克制的 Logo 是更高级的自信——产品本身就是最好的品牌声明。</strong></p>
+          <div class="rt-why">内部 · H4 诊断</div>
+          <p class="rt-txt">H4 不同产品 Logo 位置、工艺、面积均无统一规范。<strong>缺乏一致性让 Logo 成了品牌不成熟的证明，而非资产。</strong></p>
+          <div class="rt-src">
+            <div class="rt-src-row"><div class="rt-dot">W</div><div>WaterRower — 木刻，克制即自信</div></div>
+            <div class="rt-src-row"><div class="rt-dot">B</div><div>B&amp;O — 激光蚀刻，同材同工艺</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">四大规范来源 · 标杆验证 + 内部诊断</span><span class="sig sig-l">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S19 · B2 四大规范引导（独立大图页）
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">B2 · 四大核心规范 · Ch.13–16 · 有边界 · 可检查 · 可验收</span><span class="pg pg-d">20</span></div>
+  <div class="body">
+    <div class="img-fill dim" style="flex:1;">
+      <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&h=900&q=90" alt="规范引导" loading="lazy">
+      <div style="position:absolute;inset:0;background:rgba(20,16,10,0.72);display:grid;grid-template-columns:1fr 1fr;padding:40px 56px;align-items:center;gap:56px;">
+        <div style="display:flex;flex-direction:column;gap:20px;border-right:1px solid rgba(196,168,130,0.1);padding-right:56px;">
+          <div>
+            <div class="km-badge" style="margin-bottom:16px;">B2 · 四大核心规范</div>
+            <div class="h0" style="font-size:35px;margin-bottom:12px;">色彩 · 造型<br>材质 · Logo</div>
+            <div class="kicker">每一条规范都有边界，有执行标准，有禁止用法。</div>
+          </div>
+          <div class="body-txt" style="max-width:420px;">设计师可以逐条检查，供应链可以据此验收，管理层可以以此评审新品的设计合规性。</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(196,168,130,0.1);">
+            <div style="background:rgba(20,16,10,0.65);padding:17px 28px;">
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:38px;font-weight:200;color:rgba(196,168,130,0.2);line-height:1;margin-bottom:6px;">A</div>
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:15px;font-weight:400;color:rgba(240,234,224,0.82);margin-bottom:3px;">色彩规范</div>
+              <div style="font-size:8px;letter-spacing:0.14em;color:rgba(196,168,130,0.4);text-transform:uppercase;">识别权重 35%</div>
+            </div>
+            <div style="background:rgba(20,16,10,0.55);padding:17px 28px;">
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:38px;font-weight:200;color:rgba(196,168,130,0.2);line-height:1;margin-bottom:6px;">B</div>
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:15px;font-weight:400;color:rgba(240,234,224,0.82);margin-bottom:3px;">造型规范</div>
+              <div style="font-size:8px;letter-spacing:0.14em;color:rgba(196,168,130,0.4);text-transform:uppercase;">识别权重 28%</div>
+            </div>
+            <div style="background:rgba(20,16,10,0.55);padding:17px 28px;">
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:38px;font-weight:200;color:rgba(196,168,130,0.2);line-height:1;margin-bottom:6px;">C</div>
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:15px;font-weight:400;color:rgba(240,234,224,0.82);margin-bottom:3px;">材质规范</div>
+              <div style="font-size:8px;letter-spacing:0.14em;color:rgba(196,168,130,0.4);text-transform:uppercase;">识别权重 27%</div>
+            </div>
+            <div style="background:rgba(20,16,10,0.65);padding:17px 28px;">
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:38px;font-weight:200;color:rgba(196,168,130,0.2);line-height:1;margin-bottom:6px;">D</div>
+              <div style="font-family:'Noto Sans SC',sans-serif;font-size:15px;font-weight:400;color:rgba(240,234,224,0.82);margin-bottom:3px;">Logo 规范</div>
+              <div style="font-size:8px;letter-spacing:0.14em;color:rgba(196,168,130,0.4);text-transform:uppercase;">识别权重 10%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">B2 · 四大核心规范引导 · 色彩 28% · 造型 28% · 材质 27% · Logo 10%</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S20 · Ch.13 A · 色彩规范 · 三色体系
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.13 · A · 色彩规范 · 三色体系 · 面积比例规则</span><span class="pg pg-d">21</span></div>
+  <div class="body" style="flex-direction:column;background:var(--bg);">
+    <div style="padding:16px 43px 12px;flex-shrink:0;display:flex;align-items:center;gap:28px;">
+      <div style="font-family:'Noto Sans SC',sans-serif;font-size:52px;font-weight:300;color:var(--gold-l);opacity:0.38;line-height:1;">A</div>
+      <div>
+        <div class="h1-dark" style="font-size:21px;">色彩规范</div>
+        <div style="font-size:8px;letter-spacing:0.16em;color:var(--muted);text-transform:uppercase;margin-top:2px;">Color Specification · Ch.13 · 识别权重 35%</div>
+      </div>
+      <div class="spec-stmt" style="margin-left:28px;border-left:2px solid var(--gold-l);padding-left:16px;font-size:12px;flex:1;">H4 的色彩从精材中生长，而不是被选择的。</div>
+    </div>
+    <div class="sw-row" style="flex:1;overflow:hidden;border-top:1px solid var(--rule);">
+      <div class="sw">
+        <div class="sw-img"><img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=500&h=400&fit=crop&q=80" alt="木材" loading="lazy"></div>
+        <div class="sw-info"><div class="sw-pct">≥55%</div><div class="sw-name">主色 · 木材本色</div><div class="sw-note">用户首先感知到的必须是木材的温润。比例不到位，精奢温润感知就不成立。</div></div>
+      </div>
+      <div class="sw">
+        <div class="sw-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop&q=80" alt="钢" loading="lazy"></div>
+        <div class="sw-info"><div class="sw-pct">25–35%</div><div class="sw-name">辅色 · 镜面钢冷银</div><div class="sw-note">与木材形成温度张力。面积过大压制温润感；过小失去精工感。</div></div>
+      </div>
+      <div class="sw">
+        <div class="sw-img"><img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=500&h=400&fit=crop&q=80" alt="架体" loading="lazy"></div>
+        <div class="sw-info"><div class="sw-pct">5–10%</div><div class="sw-name">结构色 · 架体深色</div><div class="sw-note">框架结构件，与主色形成明度层次，不参与视觉主体竞争。</div></div>
+      </div>
+      <div class="sw">
+        <div class="sw-img"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=400&fit=crop&q=80" alt="品牌金" loading="lazy"></div>
+        <div class="sw-info"><div class="sw-pct">≤10%</div><div class="sw-name">点缀色 · 品牌金</div><div class="sw-note"><strong>禁止亮光金/电镀金替代</strong>。超出比例滑向"土豪金"观感。</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-light"><span class="bot-l-text bot-l-tl">Ch.13 · A · 色彩规范 · 三色体系</span><span class="sig sig-l">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S19 · 色彩场景配色
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.13 · A · 色彩规范 · 两种木色 · 场景配色方案</span><span class="pg pg-d">22</span></div>
+  <div class="body">
+    <div class="scene-pair" style="width:100%;">
+      <div class="scene-c">
+        <div class="scene-img" style="flex:1;">
+          <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=800&h=700&fit=crop&q=82" alt="橡木家居" loading="lazy">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;" class="strip-pt"></div>
+          <div class="ov-bottom" style="padding:20px 36px;">
+            <div class="eyebrow" style="margin-bottom:6px;">场景 A · 橡木主导</div>
+            <div class="h2">家居暖调方案</div>
+            <div class="body-txt" style="margin-top:4px;">私人豪宅 · 精装住宅 · 别墅</div>
+          </div>
+        </div>
+        <div class="scene-notes">
+          <div class="scene-note">橡木浅暖棕，<strong>与家居实木地板·原木家具自然呼应</strong></div>
+          <div class="scene-note">镜面钢控制在 <strong>25% 下限</strong>，保持家居温暖感</div>
+          <div class="scene-note">品牌金与铜质五金件<strong>形成同色系呼应</strong></div>
+        </div>
+      </div>
+      <div class="scene-c">
+        <div class="scene-img" style="flex:1;">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=700&fit=crop&q=82" alt="胡桃木酒旅" loading="lazy">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;" class="strip-wr"></div>
+          <div class="ov-bottom" style="padding:20px 36px;">
+            <div class="eyebrow" style="margin-bottom:6px;">场景 B · 胡桃木主导</div>
+            <div class="h2">酒旅深调方案</div>
+            <div class="body-txt" style="margin-top:4px;">星级酒店 · 精品民宿 · 高端健身区</div>
+          </div>
+        </div>
+        <div class="scene-notes">
+          <div class="scene-note">胡桃木深棕，<strong>与大理石·皮革家具形成协调精奢调性</strong></div>
+          <div class="scene-note">镜面钢可到 <strong>35% 上限</strong>，强化专业品质感知</div>
+          <div class="scene-note">品牌金强化存在感，<strong>不超过 10%</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Ch.13 · A · 色彩规范 · 场景配色</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S20 · 造型规范
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-light"><span class="tag tag-l">Ch.14 · B · 造型规范 · 四条形态语言原则</span><span class="pg pg-l">23</span></div>
+  <div class="body" style="background:var(--bg);flex-direction:column;overflow:hidden;">
+    <div style="padding:12px 44px 9px;flex-shrink:0;display:flex;align-items:center;gap:28px;">
+      <div style="font-family:'Noto Sans SC',sans-serif;font-size:46px;font-weight:300;color:var(--gold-l);opacity:0.4;line-height:1;">B</div>
+      <div>
+        <div class="h1-dark" style="font-size:18px;">造型规范</div>
+        <div class="spec-stmt" style="margin-top:4px;border-left:none;padding-left:0;font-size:12px;">规范不是风格偏好，而是可检查的边界。</div>
+      </div>
+    </div>
+    <div class="pr-row" style="border-top:1px solid var(--rule);">
+      <div class="pr">
+        <div class="pr-img"><img src="https://images.unsplash.com/photo-1617957689233-207e3cd3b9ca?w=600&h=500&fit=crop&q=80" alt="圆润" loading="lazy"></div>
+        <div class="pr-body"><div class="pr-n">01</div><div class="pr-title">圆润而不软弱</div><p class="pr-note">所有边角须经过圆角或弧面处理。<strong>弧面需要精确，每一处弧度都有设计意图。</strong></p></div>
+      </div>
+      <div class="pr">
+        <div class="pr-img"><img src="https://images.unsplash.com/photo-1599058917765-a780eda9d6ae?w=600&h=500&fit=crop&q=80" alt="比例" loading="lazy"></div>
+        <div class="pr-body"><div class="pr-n">02</div><div class="pr-title">比例克制有力</div><p class="pr-note"><strong>可以做小的不做大，可以做薄的不做厚。</strong>体量的克制是 H4 空间融入能力的形态基础。</p></div>
+      </div>
+      <div class="pr">
+        <div class="pr-img"><img src="https://images.unsplash.com/photo-1581009137042-c552e485697a?w=600&h=500&fit=crop&q=80" alt="零装饰" loading="lazy"></div>
+        <div class="pr-body"><div class="pr-n">03</div><div class="pr-title">零多余装饰件</div><p class="pr-note">所有可见部件必须服务于功能或材质质感。<strong>去掉了产品还能用，就不应该存在。</strong></p></div>
+      </div>
+      <div class="pr">
+        <div class="pr-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=500&fit=crop&q=80" alt="材质交界" loading="lazy"></div>
+        <div class="pr-body"><div class="pr-n">04</div><div class="pr-title">材质交界即设计</div><p class="pr-note">木材与金属的每一处交界面，都是精工感最集中的地方。<strong>须有明确收边设计。</strong></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-light"><span class="bot-l-text bot-l-tl">Ch.14 · B · 造型规范 · 四条形态语言原则</span><span class="sig sig-l">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S21 · 造型 · 双态 + 正误
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-light"><span class="tag tag-l">Ch.14 · B · 造型规范 · 双态设计 · 正误对比</span><span class="pg pg-l">24</span></div>
+  <div class="body" style="background:var(--bg);">
+    <div class="col2" style="width:100%;">
+      <div style="display:flex;flex-direction:column;padding:12px 44px 0;gap:10px;border-right:1px solid var(--rule);overflow:hidden;">
+        <div class="mlabel">静置态 × 使用态 · 双态设计要求</div>
+        <div class="dual" style="flex:1;">
+          <div class="dual-c">
+            <div class="dual-img"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&h=600&fit=crop&q=80" alt="静置态" loading="lazy"><div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,16,10,0.75) 0%, transparent 55%);display:flex;align-items:flex-end;padding:12px 20px;"><div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:300;color:rgba(240,234,224,0.9);">静置态 · 陈设态</div></div></div>
+            <p class="dual-note">轮廓干净，有陈设感，能作为空间雕塑存在。<strong>收纳形态须纳入设计考量。</strong></p>
+          </div>
+          <div class="dual-c">
+            <div class="dual-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=700&h=600&fit=crop&q=80" alt="使用态" loading="lazy"><div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(20,16,10,0.75) 0%, transparent 55%);display:flex;align-items:flex-end;padding:12px 20px;"><div style="font-family:'Noto Sans SC',sans-serif;font-size:16px;font-weight:300;color:rgba(240,234,224,0.9);">使用态</div></div></div>
+            <p class="dual-note">展开后同样具备型面美感，<strong>传动部分尽可能遮蔽。</strong></p>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;padding:12px 44px 0;gap:10px;overflow:hidden;">
+        <div class="mlabel">正误对比示例</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:1px;background:var(--rule);flex:1;">
+          <div style="position:relative;overflow:hidden;"><img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=500&h=300&fit=crop&q=80" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.65) saturate(0.55);"><div class="cbadge cbadge-bad">✕ 裸接缝</div></div>
+          <div style="position:relative;overflow:hidden;"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500&h=300&fit=crop&q=80" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.65) saturate(0.55);"><div class="cbadge cbadge-good">✓ 精工收边圈</div></div>
+          <div style="position:relative;overflow:hidden;"><img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=500&h=300&fit=crop&q=80" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.65) saturate(0.55);"><div class="cbadge cbadge-bad">✕ 螺丝外露</div></div>
+          <div style="position:relative;overflow:hidden;"><img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=500&h=300&fit=crop&q=80" alt="" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.65) saturate(0.55);"><div class="cbadge cbadge-good">✓ 连接件内藏</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-light"><span class="bot-l-text bot-l-tl">Ch.14 · B · 造型规范 · 双态设计 · 正误对比</span><span class="sig sig-l">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S22 · 材质规范
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.15 · C · 材质规范 · H4 四类精材体系</span><span class="pg pg-d">25</span></div>
+  <div class="body" style="flex-direction:column;background:var(--dk);">
+    <div style="padding:12px 44px 9px;flex-shrink:0;display:flex;align-items:center;gap:28px;border-bottom:1px solid rgba(196,168,130,0.08);">
+      <div style="font-family:'Noto Sans SC',sans-serif;font-size:46px;font-weight:300;color:var(--dk-gold);opacity:0.22;line-height:1;">C</div>
+      <div>
+        <div class="h1" style="font-size:18px;">材质规范</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:12px;font-style:italic;color:var(--dk-gold);opacity:0.65;margin-top:2px;">精材诚实性——每一种材质都必须是真实的。</div>
+      </div>
+    </div>
+    <div class="mat-row" style="flex:1;min-height:0;">
+      <div class="mat">
+        <div class="mat-img"><img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=600&h=600&fit=crop&q=80" alt="实木" loading="lazy"><div class="mat-img-ov"><div class="mat-seq">精材 01</div><div class="mat-name-lg">实木</div></div></div>
+        <div class="mat-body"><p class="mat-note">橡木/胡桃木，<strong>不允许贴皮</strong>。丹麦油手涂，<em>禁止亮光清漆。</em></p></div>
+      </div>
+      <div class="mat">
+        <div class="mat-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop&q=80" alt="精钢" loading="lazy"><div class="mat-img-ov"><div class="mat-seq">精材 02</div><div class="mat-name-lg">铝合金 · 精钢</div></div></div>
+        <div class="mat-body"><p class="mat-note">CNC 精密加工，拉丝哑光。<strong>不允许</strong>钢板冲压替代实心件。</p></div>
+      </div>
+      <div class="mat">
+        <div class="mat-img"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=600&fit=crop&q=80" alt="皮革" loading="lazy"><div class="mat-img-ov"><div class="mat-seq">精材 03</div><div class="mat-name-lg">皮革</div></div></div>
+        <div class="mat-body"><p class="mat-note">头层全粒面皮革，允许撞色手工缝线。<em>禁止 PU 皮/合成皮革。</em></p></div>
+      </div>
+      <div class="mat">
+        <div class="mat-img"><img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=600&fit=crop&q=80" alt="织物" loading="lazy"><div class="mat-img-ov"><div class="mat-seq">精材 04</div><div class="mat-name-lg">布料织物</div></div></div>
+        <div class="mat-body"><p class="mat-note">精纺功能织物，耐磨抗菌。<strong>色彩在 H4 体系内，不抢夺木材主角地位。</strong></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Ch.15 · C · 材质规范 · 四类精材体系</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S23 · 材质 · 诚实性原则
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-light"><span class="tag tag-l">Ch.15 · C · 材质规范 · 精材诚实性原则</span><span class="pg pg-l">26</span></div>
+  <div class="body" style="background:var(--bg);">
+    <div class="hon" style="width:100%;">
+      <div class="hon-img">
+        <img src="https://images.unsplash.com/photo-1543165736-85f7af9a8b91?w=900&h=900&fit=crop&q=80" alt="天然差异" loading="lazy">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(20,16,10,0.05) 0%, rgba(20,16,10,0.0) 100%);"></div>
+        <div class="ov-bottom" style="padding:24px 44px;">
+          <div class="eyebrow" style="margin-bottom:8px;">天然差异即价值</div>
+          <div class="h1">"与别人的不完全相同，<br><em>正是选择 H4 的理由之一。"</em></div>
+        </div>
+      </div>
+      <div class="hon-txt">
+        <div class="mlabel">精材诚实性原则</div>
+        <ul class="slist">
+          <li><strong>每种材质都必须是真实的</strong> — 人造木纹、贴皮、仿皮、塑料镀铬均属禁止</li>
+          <li><strong>天然色差 ≤2 级（Munsell）</strong>，定义为价值而非缺陷，不作为品控退货标准</li>
+          <li>产品传播中<strong>主动传递</strong>这一价值——精奢产品区别于工业标准品的核心所在</li>
+        </ul>
+        <div style="margin-top:16px;padding:12px 20px;background:var(--bg-2);border-left:2px solid var(--gold-d);">
+          <div class="mlabel" style="margin-bottom:6px;">禁止材质清单</div>
+          <ul class="slist">
+            <li>人造木纹 · 贴皮 · 密度板覆木皮</li>
+            <li>PU 皮 · 合成皮革</li>
+            <li>塑料镀铬 · 镀层替代实材</li>
+            <li>亮光清漆 · UV 固化漆覆木材</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-light"><span class="bot-l-text bot-l-tl">Ch.15 · C · 材质规范 · 精材诚实性原则</span><span class="sig sig-l">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S24 · Logo 规范 · 四级工艺
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">Ch.16 · D · Logo 规范 · 工艺分级</span><span class="pg pg-d">27</span></div>
+  <div class="body" style="flex-direction:column;background:var(--dk);">
+    <div style="padding:12px 44px 9px;flex-shrink:0;display:flex;align-items:center;gap:28px;border-bottom:1px solid rgba(196,168,130,0.08);">
+      <div style="font-family:'Noto Sans SC',sans-serif;font-size:46px;font-weight:300;color:var(--dk-gold);opacity:0.22;line-height:1;">D</div>
+      <div>
+        <div class="h1" style="font-size:18px;">Logo 规范</div>
+        <div style="font-family:'Noto Sans SC',sans-serif;font-size:12px;font-style:italic;color:var(--dk-gold);opacity:0.65;margin-top:2px;">产品本身是最好的品牌声明，Logo 是注脚，而非标题。</div>
+      </div>
+    </div>
+    <div class="craft-row" style="flex:1;min-height:0;">
+      <div class="craft">
+        <div class="craft-img"><img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=600&fit=crop&q=80" alt="铭牌" loading="lazy"><div class="craft-lv">等级 I</div></div>
+        <div class="craft-body"><div class="craft-name">精工不锈钢铭牌</div><span class="craft-apply">大型有氧器材 · 收纳架</span><p class="craft-note">激光蚀刻，沉入式安装。<strong>Logo 与铭牌一体成型。</strong></p></div>
+      </div>
+      <div class="craft">
+        <div class="craft-img"><img src="https://images.unsplash.com/photo-1565814636199-ae8133055c1c?w=600&h=600&fit=crop&q=80" alt="凹刻" loading="lazy"><div class="craft-lv">等级 II</div></div>
+        <div class="craft-body"><div class="craft-name">金属表面凹刻</div><span class="craft-apply">不锈钢端帽 · 铝合金框架</span><p class="craft-note">数控凹刻。<strong>触感可感知深度。</strong></p></div>
+      </div>
+      <div class="craft">
+        <div class="craft-img"><img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=600&h=600&fit=crop&q=80" alt="木质刻字" loading="lazy"><div class="craft-lv">等级 III</div></div>
+        <div class="craft-body"><div class="craft-name">木质激光刻字</div><span class="craft-apply">实木握杆 · 架体横梁</span><p class="craft-note">激光烧刻，碳化字迹。<strong><em>禁止刻字后填充金漆。</em></strong></p></div>
+      </div>
+      <div class="craft">
+        <div class="craft-img"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600&h=600&fit=crop&q=80" alt="烫印" loading="lazy"><div class="craft-lv">等级 IV</div></div>
+        <div class="craft-body"><div class="craft-name">皮革烫印 / 织标</div><span class="craft-apply">皮革握把 · 坐垫 · 布料配件</span><p class="craft-note">热压烫印（哑光）或精纺织标。<strong>软材质部件标准工艺。</strong></p></div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">Ch.16 · D · Logo 规范 · 工艺分级</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S25 · Logo 位置规则
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-light"><span class="tag tag-l">Ch.16 · D · Logo 规范 · 位置规则 · 禁止用法</span><span class="pg pg-l">28</span></div>
+  <div class="body" style="background:var(--bg);flex-direction:column;overflow:hidden;">
+    <div style="padding:12px 44px 9px;flex-shrink:0;"><div class="mlabel">位置规则 · 视觉路径末端原则</div></div>
+    <div class="pos-row" style="flex:1;min-height:0;border-top:1px solid var(--rule);">
+      <div class="pos">
+        <div class="pos-img"><img src="https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?w=600&h=500&fit=crop&q=80" alt="收纳架" loading="lazy"></div>
+        <div class="pos-body"><div class="pos-prod">收纳架类</div><p class="pos-note"><strong>架体底座正面中央</strong>，不放于搁板上方显眼处</p></div>
+      </div>
+      <div class="pos">
+        <div class="pos-img"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=500&fit=crop&q=80" alt="哑铃" loading="lazy"></div>
+        <div class="pos-body"><div class="pos-prod">哑铃类</div><p class="pos-note">握杆侧面，<strong>靠近端帽一侧</strong>，字高 3–5mm</p></div>
+      </div>
+      <div class="pos">
+        <div class="pos-img"><img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600&h=500&fit=crop&q=80" alt="大型器材" loading="lazy"></div>
+        <div class="pos-body"><div class="pos-prod">大型有氧器材</div><p class="pos-note">金属铭牌放于<strong>主机侧面或背面</strong>，不放于操作面中央</p></div>
+      </div>
+    </div>
+    <div style="padding:10px 44px;flex-shrink:0;border-top:1px solid var(--rule);background:var(--bg-2);">
+      <div class="mlabel" style="margin-bottom:5px;">禁止用法</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 43px;">
+        <div style="font-size:10px;color:var(--muted);padding:3px 0;border-bottom:1px solid var(--rule-2);">禁止印刷级 Logo（UV 印刷/移印/喷绘）</div>
+        <div style="font-size:10px;color:var(--muted);padding:3px 0;border-bottom:1px solid var(--rule-2);">禁止操作面中央放置大尺寸 Logo</div>
+        <div style="font-size:10px;color:var(--muted);padding:3px 0;">禁止木材刻字后填充金漆</div>
+        <div style="font-size:10px;color:var(--muted);padding:3px 0;">禁止多处重复放置 Logo（单件只允许一处）</div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-light"><span class="bot-l-text bot-l-tl">Ch.16 · D · Logo 规范 · 位置规则</span><span class="sig sig-l">JeasonChou</span></div>
+</div>
+
+<!-- ════════════════════════════
+  S26 · 结尾
+════════════════════════════ -->
+<div class="s">
+  <div class="top top-dark"><span class="tag tag-d">核心结论 · 这是起点，不是终点</span><span class="pg pg-d">29</span></div>
+  <div class="body">
+    <div class="img-fill dim" style="flex:1;">
+      <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&h=900&q=90" alt="结尾" loading="lazy">
+      <div style="position:absolute;inset:0;background:rgba(20,16,10,0.75);display:grid;grid-template-columns:1fr 1fr;padding:40px 56px;gap:56px;">
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:24px;border-right:1px solid rgba(196,168,130,0.1);padding-right:56px;">
+          <div>
+            <div class="km-badge" style="margin-bottom:16px;">核心结论 · 整场提报的终点</div>
+            <div class="h0" style="font-size:31px;margin-bottom:12px;">以套系化空间美学为战略方向，以材质温度与精工细节为执行标准——<em>建立一套只有绝影能做的设计语言。</em></div>
+          </div>
+          <div style="display:flex;gap:43px;padding-top:20px;border-top:1px solid rgba(196,168,130,0.1);">
+            <div><div class="stat-n">16</div><div class="stat-l">Chapters</div></div>
+            <div><div class="stat-n">4</div><div class="stat-l">Core Specs</div></div>
+            <div><div class="stat-n">29</div><div class="stat-l">Slides</div></div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;justify-content:center;gap:16px;">
+          <div style="background:rgba(20,16,10,0.6);border-left:2px solid var(--gold);padding:16px 28px;">
+            <div class="eyebrow" style="margin-bottom:6px;">Phase I · 确认</div>
+            <div class="body-txt"><strong>管理层对方向确认</strong>后，四大规范正式落地执行。</div>
+          </div>
+          <div style="background:rgba(20,16,10,0.6);border-left:2px solid rgba(196,168,130,0.4);padding:16px 28px;">
+            <div class="eyebrow" style="margin-bottom:6px;">Phase II · 落地</div>
+            <div class="body-txt">以四大规范为约束条件，对所有 H4 在研/立项新品进行<strong>设计合规检查</strong>。</div>
+          </div>
+          <div style="background:rgba(20,16,10,0.6);border-left:2px solid rgba(196,168,130,0.2);padding:16px 28px;">
+            <div class="eyebrow" style="margin-bottom:6px;">Phase III · 迭代</div>
+            <div class="body-txt">PIS 是<strong>活的文件</strong>，H4 推出 3 款以上新品后触发首次更新评估。</div>
+          </div>
+          <div style="text-align:right;padding-top:12px;border-top:1px solid rgba(196,168,130,0.1);">
+            <div style="font-family:'Noto Sans SC',sans-serif;font-size:43px;font-weight:300;font-style:italic;color:rgba(196,168,130,0.22);line-height:1;">JeasonChou</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bot bot-dark"><span class="bot-l-text bot-l-td">XENJOY 绝影 · H4 调性产品线 · Product Identity System · 16 Chapters · 汇报版</span><span class="sig sig-d">JeasonChou</span></div>
+</div>
+
+</body>
+</html>
